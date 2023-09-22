@@ -18,8 +18,16 @@
 #include <string>
 #include "assign2-algos.decl.h"
 
-// Implement your algorithms for assignment 2 in this file.
 
+/**
+ * @brief Iterates through container and dereferences the iterator
+ * and stores the contents into the variable "sum", which it returns.
+ * 
+ * @tparam ITERATOR 
+ * @param begin 
+ * @param end 
+ * @return int 
+ **********************************************************************************************/
 template <typename ITERATOR>
 int range_sum(ITERATOR begin, ITERATOR end) {
     int sum = 0;
@@ -27,7 +35,17 @@ int range_sum(ITERATOR begin, ITERATOR end) {
         sum += *it;
     return sum;
 }
-
+/**
+ * @brief Iterates through container and counts the range of the number
+ * of elements before diving it by the sum to store the range into a
+ * variable "range", before diving it by the sum to store in the 
+ * variable "avg", which it returns.
+ * 
+ * @tparam ITERATOR 
+ * @param begin 
+ * @param end 
+ * @return double 
+ *********************************************************************************************/
 template <typename ITERATOR>
     double range_avg(ITERATOR begin, ITERATOR end) {
     double sum = 0;
@@ -44,7 +62,15 @@ template <typename ITERATOR>
     return avg;
     
 }
-
+/**
+ * @brief Iterates through container to find and compare the current value against
+ * the current max value, and returns the maximum value in the variable "maxval".
+ * 
+ * @tparam ITERATOR 
+ * @param begin 
+ * @param end 
+ * @return auto 
+ **********************************************************************************************/
 template <typename ITERATOR>
 auto range_maxval(ITERATOR begin, ITERATOR end) {
     double maxval = 0;
@@ -56,7 +82,15 @@ auto range_maxval(ITERATOR begin, ITERATOR end) {
     
 
 }
-
+/**
+ * @brief Iterates through container to find and compare the current value against
+ * the current min value, and returns the minimum value in the variable "minval".
+ * 
+ * @tparam ITERATOR 
+ * @param begin 
+ * @param end 
+ * @return auto 
+ **********************************************************************************************/
 template <typename ITERATOR>
 auto range_minval(ITERATOR begin, ITERATOR end) {
     double minval = 0;
@@ -66,7 +100,15 @@ auto range_minval(ITERATOR begin, ITERATOR end) {
 
     return minval;
 }
-
+/**
+ * @brief Iterates through container to find the amount of elements in the range
+ * and returns and stores the value in the variable "range".
+ * 
+ * @tparam ITERATOR 
+ * @param begin 
+ * @param end 
+ * @return int 
+ **********************************************************************************************/
 template <typename ITERATOR>
 int range_count(ITERATOR begin, ITERATOR end) {
     int range = 0;
@@ -76,7 +118,20 @@ int range_count(ITERATOR begin, ITERATOR end) {
     return range;
   
 }
-
+/**
+ * @brief Iterates through container and dereferences the container to
+ * ostringstream while checking for trailing comma logic. Prints the
+ * prefix and postfix depending on the position in the container. 
+ * 
+ * @tparam ITERATOR 
+ * @param ost 
+ * @param begin 
+ * @param end 
+ * @param pre 
+ * @param sep 
+ * @param post 
+ * @param width 
+ **********************************************************************************************/
 template <typename ITERATOR>
 void print_range(std::ostream & ost, ITERATOR begin, ITERATOR end, const std::string &pre, const std::string &sep, const std::string &post, int width) {
     std::setw(width);
@@ -91,7 +146,19 @@ void print_range(std::ostream & ost, ITERATOR begin, ITERATOR end, const std::st
 }
 
 
-
+/**
+ * @brief Iterates through container and derefernces the iterator to
+ * the variable "bin_index" and then checks logic to increment
+ * "nums[bin_index]".
+ * 
+ * @tparam ITERATOR 
+ * @tparam RANDOM_ACCESS 
+ * @param begin 
+ * @param end 
+ * @param nums 
+ * @param N 
+ * @param divisor 
+ **********************************************************************************************/
 template<typename ITERATOR, typename RANDOM_ACCESS>
 void histogram(ITERATOR begin, ITERATOR end, RANDOM_ACCESS & nums, int N, int divisor) {
     nums.assign(N, 0);
@@ -106,7 +173,16 @@ void histogram(ITERATOR begin, ITERATOR end, RANDOM_ACCESS & nums, int N, int di
 }
 
 
-
+/**
+ * @brief Get the next token strict object.
+ * 
+ * @tparam ITERATOR 
+ * @tparam T 
+ * @param begin 
+ * @param end 
+ * @param delim 
+ * @return iter_token_info<ITERATOR> 
+ **********************************************************************************************/
 template <typename ITERATOR, typename T>
 iter_token_info<ITERATOR> get_next_token_strict(ITERATOR begin, ITERATOR end, T delim) {
     iter_token_info<ITERATOR> token;
@@ -127,7 +203,16 @@ iter_token_info<ITERATOR> get_next_token_strict(ITERATOR begin, ITERATOR end, T 
 }
 
 
-
+/**
+ * @brief Get the next token greedy object.
+ * 
+ * @tparam ITERATOR 
+ * @tparam T 
+ * @param begin 
+ * @param end 
+ * @param delim 
+ * @return iter_token_info<ITERATOR> 
+ **********************************************************************************************/
 template <typename ITERATOR, typename T>
 iter_token_info<ITERATOR> get_next_token_greedy(ITERATOR begin, ITERATOR end, T delim) {
     iter_token_info<ITERATOR> token;
