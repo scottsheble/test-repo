@@ -82,7 +82,11 @@ void print_range(std::ostream & ost, ITERATOR begin, ITERATOR end, const std::st
     std::setw(width);
     ost << pre;
     for (auto it = begin; it != end; it++)
-        ost << std::setw(width) << *it << sep;
+        if (it == begin){
+            ost << std::setw(width) << *it;
+        } else {
+            ost << std::setw(width) << sep << *it;
+        }
     ost << post;
 }
 
