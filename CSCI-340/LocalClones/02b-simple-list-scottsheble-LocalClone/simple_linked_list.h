@@ -27,7 +27,6 @@ simple_linked_list<T>::simple_linked_list(ITERATOR beg, ITERATOR end) : n_elemen
     }
 }
 
-
 template <typename T>
 bool simple_linked_list<T>::empty() const {
   if(head == nullptr || n_elements == 0){
