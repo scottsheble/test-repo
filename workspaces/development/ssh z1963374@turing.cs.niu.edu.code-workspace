@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "SSH FS - turing",
+			"uri": "ssh://turing/home/turing/z1963374"
+		},
+		{
+			"name": "SSH FS - turing",
+			"path": "."
+		}
+	]
+}
