@@ -16,8 +16,6 @@
 
 #include <iostream>
 
-//#warning The provided version of simple_linked_list.h does not actually implement things. 
-
 /**
  * @brief Construct a new simple linked list<T>::simple linked list object setting 
  * "head" to "nullptr", "tail" to "nullptr", and setting the number of elements
