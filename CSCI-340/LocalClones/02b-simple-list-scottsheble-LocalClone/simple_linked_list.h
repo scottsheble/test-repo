@@ -1,6 +1,6 @@
 /**********************************************************************************************
  * NIU CSCI 340 Section YOUR_SECTION                                                          *
- * Assignment 2b                                                                               *
+ * Assignment 2b                                                                              *
  * Scott Sheble - Z1963374 - scottsheble                                                      *
  *                                                                                            *
  *   I certify that everything I am submitting is either provided by the professor for use in *
