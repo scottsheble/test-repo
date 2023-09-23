@@ -139,13 +139,12 @@ int range_count(ITERATOR begin, ITERATOR end) {
  */
 template <typename ITERATOR>
 void print_range(std::ostream & ost, ITERATOR begin, ITERATOR end, const std::string &pre, const std::string &sep, const std::string &post, int width) {
-    std::setw(width);
     ost << pre;
     for (auto it = begin; it != end; it++)
-        if (it == begin){
-            ost << std::setw(width) << *it;
+        if (it != begin){
+            ost << sep << *it;
         } else {
-            ost << std::setw(width) << sep << *it;
+            ost << *it;
         }
     ost << post;
 }
