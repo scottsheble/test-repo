@@ -119,7 +119,8 @@ void simple_linked_list<T>::pop_back() {
         head = tail = nullptr;
     } else {
         linked_node<T> *current = head;
-        while (current->next != tail) {
+        while (current->next != tail) 
+        {
             current = current->next;
         }
         delete tail;
@@ -209,7 +210,6 @@ bool simple_linked_iterator<T>::operator == (const simple_linked_iterator<T> &ot
 template <typename T>
 simple_linked_iterator <T> & simple_linked_iterator <T>::operator ++ () { 
     pos = pos->next;
-
     return *this;
 }
   
@@ -223,9 +223,9 @@ simple_linked_iterator <T> & simple_linked_iterator <T>::operator ++ () {
  */
 template <typename T>
 simple_linked_iterator <T> simple_linked_iterator<T>::operator ++ (int) { 
-    simple_linked_iterator <T> temp = *this;
+    simple_linked_iterator <T> tempContainer = *this;
     ++(*this);
-    return temp;
+    return tempContainer;
 }
 
 /**
@@ -243,7 +243,6 @@ T & simple_linked_iterator<T>::operator * () {
     else {
       return pos->data;
     }
-    
 }
 
 #endif
