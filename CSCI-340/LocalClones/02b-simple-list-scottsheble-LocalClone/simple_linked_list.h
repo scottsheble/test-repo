@@ -35,6 +35,7 @@ simple_linked_list<T>::simple_linked_list(ITERATOR beg, ITERATOR end) : n_elemen
         push_back(*it);
     }
 }
+
 /**
  * @brief Boolean returning true if the linked list is empty and false
  *  if it does contain elements.
@@ -237,7 +238,7 @@ simple_linked_iterator <T> simple_linked_iterator<T>::operator ++ (int) {
  * @return T& 
  */
 template <typename T>
-T & simple_linked_iterator<T>::operator * () { // dereference operator
+T & simple_linked_iterator<T>::operator * () { 
     if (!pos) {
         throw std::out_of_range("Iterator is out of range");
     }
