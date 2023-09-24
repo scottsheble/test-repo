@@ -41,6 +41,7 @@ int main()
     wilksScore = powerliftingTotal * WILKS_COEFFICIENT;
     std::cout << endl;
     
+    
     /**
      *  Allocating number of spaces for output reports left & right columns
      *  and creating format for console output.
