@@ -5,10 +5,6 @@ ________________________________________________________________________________
 
 ⭕ 330 assignment 
 
-⭕ 340 Dailies
-
-⭕ 240 Dailies
-
 ⭕ Independent Study: john's basement
 
 ⭕ Respond to Daniel Pre-Major Meeting
