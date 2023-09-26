@@ -31,8 +31,9 @@
 template <typename ITERATOR>
 int range_sum(ITERATOR begin, ITERATOR end) {
     int sum = 0;
-    for (auto it = begin; it != end; it++)
+    for (auto it = begin; it != end; it++) {
         sum += *it;
+    }      
     return sum;
 }
 
@@ -52,14 +53,13 @@ template <typename ITERATOR>
     double sum = 0;
     double avg = 0;
     int range = 0;
-    for (auto it = begin; it != end; it++)
-            range += 1;
-        
+    for (auto it = begin; it != end; it++) {
+        range += 1
+    }    
     for (auto it = begin; it != end; it++)
         sum += *it;
-        
     avg = sum / range;
-    
+
     return avg;
     
 }
