@@ -18,7 +18,7 @@
 
 template <typename T, typename CONT>
 void test_loadfile(std::ostream &ost, const std::string &filename, const std::string & label, int colw, bool eempty, int ewidth, int eheight) {
-  grid_row_major<int, CONT> g;
+  grid_row_major<T, CONT> g; //grid_row_major<int, CONT> g;
 
   ost << "Attempting to load from " << filename << " into " << label << "\n";
   if(g.load_from_file(filename)) {
