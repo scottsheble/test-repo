@@ -6,17 +6,17 @@
 using namespace std;
 
 
-bool valid_sudoku(vector<vector<int>> &s)
+bool isValidSudoku(vector<vector<int>> &board)
 {
     for (int i = 0; i < 9; ++i)
     {
         unordered_set<int> rowSet;
         for (int j = 0; j < 9; ++j)
         {
-            if (s[i][j] != '.' && rowSet.count(s[i][j]))
+            if (board[i][j] != '.' && rowSet.count(board[i][j]))
                 return false;
-            if (s[i][j] != '.')
-                rowSet.insert(s[i][j]);
+            if (board[i][j] != '.')
+                rowSet.insert(board[i][j]);
         }
     }
 
@@ -25,10 +25,10 @@ bool valid_sudoku(vector<vector<int>> &s)
         unordered_set<int> colSet;
         for (int i = 0; i < 9; ++i)
         {
-            if (s[i][j] != '.' && colSet.count(s[i][j]))
+            if (board[i][j] != '.' && colSet.count(board[i][j]))
                 return false;
-            if (s[i][j] != '.')
-                colSet.insert(s[i][j]);
+            if (board[i][j] != '.')
+                colSet.insert(board[i][j]);
         }
     }
 
@@ -39,10 +39,10 @@ bool valid_sudoku(vector<vector<int>> &s)
         {
             for (int j = block % 3 * 3; j < block % 3 * 3 + 3; ++j)
             {
-                if (s[i][j] != '.' && subgridSet.count(s[i][j]))
+                if (board[i][j] != '.' && subgridSet.count(board[i][j]))
                     return false;
-                if (s[i][j] != '.')
-                    subgridSet.insert(s[i][j]);
+                if (board[i][j] != '.')
+                    subgridSet.insert(board[i][j]);
             }
         }
     }
