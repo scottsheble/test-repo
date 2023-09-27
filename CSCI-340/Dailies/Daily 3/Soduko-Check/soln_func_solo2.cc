@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 bool isValidSudoku(vector<vector<int>> &board)
 {
     for (int i = 0; i < 9; ++i)
