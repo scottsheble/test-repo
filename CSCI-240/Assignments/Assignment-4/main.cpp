@@ -18,16 +18,23 @@
 #include <cstdlib>
 #include <ctime>
 
-int num;
-
 using namespace std;
 
+int num;
 
 int main()
 {
-    srand(1);
+    srand(17);
     //srand(time(0));
     num = rand();
+
+    for (int i = 0; i <=52; i++) {
+        std::cout << num;
+
+
+    }
+
+
 
 
     return 0;
