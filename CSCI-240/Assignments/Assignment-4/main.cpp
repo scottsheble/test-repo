@@ -20,6 +20,13 @@ using namespace std;
 
 int num;
 int countElements = 0;
+const int SET1_SIZE = 52;
+const int SET2_MAXSIZE = 80;
+const int SET3_MAXSIZE = 100;
+const double MIN_RAND_VALUE = 0.0;
+const double MAX_RAND_VALUE = 200.0;
+const int VALUES_PER_LINE = 6;
+
 
 int main()
 {
