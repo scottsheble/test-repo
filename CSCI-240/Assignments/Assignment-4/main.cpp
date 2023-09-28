@@ -21,6 +21,7 @@
 using namespace std;
 
 int num;
+int countElements = 0;
 
 int main()
 {
@@ -31,18 +32,17 @@ int main()
     //srand(17);
     srand(17);
 
-    for (int i = 0; i <=52; i++) {
-        for (int j = 0; j < 6; j++){
-            std::cout << 1 + rand() % 100 << " ";
+    for (int i = 0, j = 1; i < 52; i++, j++) {
+        countElements++;
+        std::cout << 1 + rand() % 100 << " ";
+        if (j == 6) {
+            j = 0;
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
-
-        // if ((i % 6 == 0) && i != 0){
-        //     std::cout << std::endl;
-        // }
-
+        
 
     }
+    std::cout << "\n\nSet 1 has " << countElements << " values";
 
 
     return 0;
