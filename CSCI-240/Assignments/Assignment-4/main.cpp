@@ -16,12 +16,17 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <ctime>
+
 
 using namespace std;
 
 
 int main()
 {
+    srand(1);
+    //srand(time(0));
+
 
     return 0;
 }
