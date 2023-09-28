@@ -5,12 +5,12 @@
 
     Section: 1
 
-    Date Due: 9/22/2023
+    Date Due: 9/29/2023
 
     Purpose: This program demonstrates how income tax
     is applied towards various levels of income.
 
-    Created by scott sheble on 8/28/23.
+    Created by scott sheble on 9/28/23.
 *********************************************************/
 
 #include <iostream>
