@@ -39,22 +39,35 @@ int main()
             j = 0;
             std::cout << std::endl;
         }
-        
+    }
+    std::cout << std::endl;
 
+    std::cout << "Set 2 has exactly " << SET2_MAXSIZE << " values" << std::endl;
+    int elementCounter = 0;
+    int lineCounter = 1;
+    while (elementCounter < SET2_MAXSIZE) {
+        int num = rand();
+        cout << std::setw(12) << num;
+        if (lineCounter == VALUES_PER_LINE) {
+            lineCounter = 0;
+            std::cout << std::endl;
+        }
+        elementCounter++;
+        lineCounter++;
     }
 
-    // std::cout << "Set 1 has exactly " << SET1_SIZE << " values" << std::endl;
-    // for (int i = 0, j = 1; i < 52; i++, j++) {
-    //     int num = rand();
-    //     std::cout << 1 + rand() % 100 << " ";
-    //     if (j == 6) {
-    //         j = 0;
-    //         std::cout << std::endl;
-    //     }
-    // }
+    std::cout << std::endl;
+
+    std::cout << "Set 3 has exactly " << SET3_MAXSIZE << " values" << std::endl;
+    do {
+        
+    }
 
 
-    //while (int i = 0, j = 1; i < 52; i++, j++)
+
+
+    
+
 
 
     return 0;
