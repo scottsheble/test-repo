@@ -59,7 +59,8 @@
     "vector": "cpp",
     "algorithm": "cpp",
     "deque": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "unordered_set": "cpp"
   },
   "files.exclude": {
     ".gitignore": true

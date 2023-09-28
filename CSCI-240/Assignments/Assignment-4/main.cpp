@@ -32,13 +32,31 @@ int main()
     srand(17);
 
     for (int i = 0; i <=52; i++) {
-        std::cout << 1 + rand() % 100 << " ";
-        if ((i % 6 == 0) && i != 0){
-            std::cout << std::endl;
+        for (int j = 0; j < 6; j++){
+            std::cout << 1 + rand() % 100 << " ";
         }
+        std::cout << std::endl;
+
+        // if ((i % 6 == 0) && i != 0){
+        //     std::cout << std::endl;
+        // }
 
 
     }
+
+        // for (int i = 0; i <=52; i++) {
+        // for (int j = 0; j < 6; j++){
+        //     std::cout << 1 + rand() % 100 << " ";
+        // }
+        // std::cout << std::endl;
+
+        // if ((i % 6 == 0) && i != 0){
+        //     std::cout << std::endl;
+        // }
+
+
+    // }
+
 
 
 
