@@ -24,12 +24,18 @@ int num;
 
 int main()
 {
-    srand(17);
+    //srand(17);
     //srand(time(0));
-    num = rand();
+    //num = rand();
+    //num = rand();
+    //srand(17);
+    srand(17);
 
     for (int i = 0; i <=52; i++) {
-        std::cout << num;
+        std::cout << 1 + rand() % 100 << " ";
+        if ((i % 6 == 0) && i != 0){
+            std::cout << std::endl;
+        }
 
 
     }
