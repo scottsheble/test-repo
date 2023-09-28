@@ -17,9 +17,6 @@
 #include <iomanip>
 #include <cstdlib>
 
-
-
-
 using namespace std;
 
 const double TAX_BRACKET1 = (0.1);
