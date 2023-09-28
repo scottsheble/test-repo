@@ -7,8 +7,8 @@
 
     Date Due: 9/29/2023
 
-    Purpose: This program demonstrates how income tax
-    is applied towards various levels of income.
+    Purpose: This program demonstrates generating three 
+    sets of random numbers.
 
     Created by scott sheble on 9/28/23.
 *********************************************************/
