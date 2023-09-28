@@ -1,0 +1,86 @@
+********************************************************************************
+* Seventh unit test - make sure this is right before moving on to next
+*   This tests your load_from_file method to see if it works as expected.
+* Remember that cin's extraction operator, >>, is being used to get the values
+* here, so we may see different answers depending on how that converts the string
+* in the file into a value of the type contained by your grid.
+********************************************************************************
+
+Attempting to load from testdata1.grid into int vector
+SUCCESS
+  CHECKING STATS FOR GRID int vector
+    empty? no  - expected not empty - GOOD
+    width  = 10 - expected 10 - GOOD
+    height = 5 - expected 5 - GOOD
+
+GRID (int vector) PRINTING WITH ROW ITERATORS
+  |     0     1     0     2     0     3     0     4     0     5 |
+  |     2     0     4     0     6     0     8     0    10     0 |
+  |     0     3     0     5     0     7     0     9     0    11 |
+  |   100   200   300   400   500   600   700   800   900  1000 |
+  |     5     0     5     0     5     0     5     0     5     0 |
+
+PRINTING TRANSPOSE OF int vector WITH COLUMN ITERATORS
+  |     0     2     0   100     5 |
+  |     1     0     3   200     0 |
+  |     0     4     0   300     5 |
+  |     2     0     5   400     0 |
+  |     0     6     0   500     5 |
+  |     3     0     7   600     0 |
+  |     0     8     0   700     5 |
+  |     4     0     9   800     0 |
+  |     0    10     0   900     5 |
+  |     5     0    11  1000     0 |
+
+Attempting to load from testdata1.grid into float vector
+SUCCESS
+  CHECKING STATS FOR GRID float vector
+    empty? no  - expected not empty - GOOD
+    width  = 10 - expected 10 - GOOD
+    height = 5 - expected 5 - GOOD
+
+GRID (float vector) PRINTING WITH ROW ITERATORS
+  |     0     1     0     2     0     3     0     4     0     5 |
+  |     2     0     4     0     6     0     8     0    10     0 |
+  |     0     3     0     5     0     7     0     9     0    11 |
+  |   100   200   300   400   500   600   700   800   900  1000 |
+  |     5     0     5     0     5     0     5     0     5     0 |
+
+PRINTING TRANSPOSE OF float vector WITH COLUMN ITERATORS
+  |     0     2     0   100     5 |
+  |     1     0     3   200     0 |
+  |     0     4     0   300     5 |
+  |     2     0     5   400     0 |
+  |     0     6     0   500     5 |
+  |     3     0     7   600     0 |
+  |     0     8     0   700     5 |
+  |     4     0     9   800     0 |
+  |     0    10     0   900     5 |
+  |     5     0    11  1000     0 |
+
+Attempting to load from testdata1.grid into string vector
+SUCCESS
+  CHECKING STATS FOR GRID string vector
+    empty? no  - expected not empty - GOOD
+    width  = 10 - expected 10 - GOOD
+    height = 5 - expected 5 - GOOD
+
+GRID (string vector) PRINTING WITH ROW ITERATORS
+  |     0     1     0     2     0     3     0     4     0     5 |
+  |     2     0     4     0     6     0     8     0    10     0 |
+  |     0     3     0     5     0     7     0     9     0    11 |
+  |   100   200   300   400   500   600   700   800   900  1000 |
+  |     5     0     5     0     5     0     5     0     5     0 |
+
+PRINTING TRANSPOSE OF string vector WITH COLUMN ITERATORS
+  |     0     2     0   100     5 |
+  |     1     0     3   200     0 |
+  |     0     4     0   300     5 |
+  |     2     0     5   400     0 |
+  |     0     6     0   500     5 |
+  |     3     0     7   600     0 |
+  |     0     8     0   700     5 |
+  |     4     0     9   800     0 |
+  |     0    10     0   900     5 |
+  |     5     0    11  1000     0 |
+

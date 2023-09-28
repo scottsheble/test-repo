@@ -1,0 +1,48 @@
+********************************************************************************
+* Sixth unit test - make sure this is right before moving on to next
+*   This may use some things from previous tests, but its main new feature is
+* to use column iterators to write over a column.
+********************************************************************************
+
+  CHECKING STATS FOR GRID g1
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+  CHECKING STATS FOR GRID g2 before assignment
+    empty? yes - expected empty - GOOD
+    width  = 0 - expected 0 - GOOD
+    height = 0 - expected 0 - GOOD
+
+ASSIGNING g1 TO g2
+  CHECKING STATS FOR GRID g2 after assignment
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+  CHECKING STATS FOR GRID g3 (copy constructed from g1)
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+GRID (g1 before starting) PRINTING WITH ROW ITERATORS
+  | 100 101 102 103 104 105 106 107 |
+  | 200 201 202 203 204 205 206 207 |
+  | 300 301 302 303 304 305 306 307 |
+  | 400 401 402 403 404 405 406 407 |
+  | 500 501 502 503 504 505 506 507 |
+
+GRID (g1 with row 2 altered) PRINTING WITH ROW ITERATORS
+  | 100 101 102 103 104 105 106 107 |
+  | 200 201 202 203 204 205 206 207 |
+  | 950 851 752 653 554 955 856 757 |
+  | 400 401 402 403 404 405 406 407 |
+  | 500 501 502 503 504 505 506 507 |
+
+GRID (g1, row 2, column 2 altered) PRINTING WITH ROW ITERATORS
+  | 100 101 950 103 104 105 106 107 |
+  | 200 201 851 203 204 205 206 207 |
+  | 950 851 752 653 554 955 856 757 |
+  | 400 401 653 403 404 405 406 407 |
+  | 500 501 554 503 504 505 506 507 |
+

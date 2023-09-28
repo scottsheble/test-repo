@@ -1,0 +1,44 @@
+********************************************************************************
+* Third unit test - make sure this is right before moving on to next
+*   This test checks your rowbegin and rowend to see if you've implemented
+* them properly.
+********************************************************************************
+
+  CHECKING STATS FOR GRID grid backed by vector<int>
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+WILL PRINT (grid backed by vector<int>) USING YOUR ROW ITERATORS
+  EXPECT:
+    | 101 102 103 ... |
+    | 201 202 203 ... |
+    | 301 302 303 ... |
+    | ...             |
+
+GRID (label) PRINTING WITH ROW ITERATORS
+  | 101 102 103 104 105 106 107 108 |
+  | 201 202 203 204 205 206 207 208 |
+  | 301 302 303 304 305 306 307 308 |
+  | 401 402 403 404 405 406 407 408 |
+  | 501 502 503 504 505 506 507 508 |
+
+  CHECKING STATS FOR GRID grid backed by vector<float>
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+WILL PRINT (grid backed by vector<float>) USING YOUR ROW ITERATORS
+  EXPECT:
+    | 101 102 103 ... |
+    | 201 202 203 ... |
+    | 301 302 303 ... |
+    | ...             |
+
+GRID (label) PRINTING WITH ROW ITERATORS
+  | 101 102 103 104 105 106 107 108 |
+  | 201 202 203 204 205 206 207 208 |
+  | 301 302 303 304 305 306 307 308 |
+  | 401 402 403 404 405 406 407 408 |
+  | 501 502 503 504 505 506 507 508 |
+

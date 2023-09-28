@@ -1,0 +1,90 @@
+********************************************************************************
+* First unit test - make sure this is right before moving on to next
+*   This tests the constructors and the easiest methods to implement, mainly
+* empty(), width(), and height().
+********************************************************************************
+
+TESTING CONSTRUCTOR AND BASIC STATISTIC METHODS FOR grid backed by vector<int>
+  CHECKING STATS FOR GRID g1
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+  CHECKING STATS FOR GRID g2 before assignment
+    empty? yes - expected empty - GOOD
+    width  = 0 - expected 0 - GOOD
+    height = 0 - expected 0 - GOOD
+
+ASSIGNING g1 TO g2
+  CHECKING STATS FOR GRID g2 after assignment
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+  CHECKING STATS FOR GRID g3 (copy constructed from g1)
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+CALLING g1.clear()
+  CHECKING STATS FOR GRID g1 after clear
+    empty? yes - expected empty - GOOD
+    width  = 0 - expected 0 - GOOD
+    height = 0 - expected 0 - GOOD
+
+TESTING CONSTRUCTOR AND BASIC STATISTIC METHODS FOR grid backed by deque<int>
+  CHECKING STATS FOR GRID g1
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+  CHECKING STATS FOR GRID g2 before assignment
+    empty? yes - expected empty - GOOD
+    width  = 0 - expected 0 - GOOD
+    height = 0 - expected 0 - GOOD
+
+ASSIGNING g1 TO g2
+  CHECKING STATS FOR GRID g2 after assignment
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+  CHECKING STATS FOR GRID g3 (copy constructed from g1)
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+CALLING g1.clear()
+  CHECKING STATS FOR GRID g1 after clear
+    empty? yes - expected empty - GOOD
+    width  = 0 - expected 0 - GOOD
+    height = 0 - expected 0 - GOOD
+
+TESTING CONSTRUCTOR AND BASIC STATISTIC METHODS FOR grid backed by vector<string>
+  CHECKING STATS FOR GRID g1
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+  CHECKING STATS FOR GRID g2 before assignment
+    empty? yes - expected empty - GOOD
+    width  = 0 - expected 0 - GOOD
+    height = 0 - expected 0 - GOOD
+
+ASSIGNING g1 TO g2
+  CHECKING STATS FOR GRID g2 after assignment
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+  CHECKING STATS FOR GRID g3 (copy constructed from g1)
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+CALLING g1.clear()
+  CHECKING STATS FOR GRID g1 after clear
+    empty? yes - expected empty - GOOD
+    width  = 0 - expected 0 - GOOD
+    height = 0 - expected 0 - GOOD
+

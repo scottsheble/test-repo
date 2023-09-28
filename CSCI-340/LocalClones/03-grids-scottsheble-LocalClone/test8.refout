@@ -1,0 +1,39 @@
+********************************************************************************
+* Eighth unit test - make sure this is right before moving on to next
+*   This tests your matrix multiplication function. It loads two files
+* into your program as grids, then multiplies them as matrices, if possible,
+* printing both matrices and their result.
+********************************************************************************
+
+Attempting to load left-hand-side grid from A.grid into g_lhs
+SUCCESS
+PRINTING g_lhs WITH atrc
+  |      1      2      3 |
+  |      4      5      6 |
+  |      7      8      9 |
+PRINTING g_lhs WITH atxy
+  |      1      2      3 |
+  |      4      5      6 |
+  |      7      8      9 |
+
+Attempting to load right-hand-side grid from swapxz.grid into g_rhs
+SUCCESS
+PRINTING g_rhs WITH atrc
+  |      0      0      1 |
+  |      0      1      0 |
+  |      1      0      0 |
+PRINTING g_rhs WITH atxy
+  |      0      0      1 |
+  |      0      1      0 |
+  |      1      0      0 |
+
+SUCCESSFULLY MULTIPLIED, PRINTING RESULT
+PRINTING g_result WITH atrc
+  |      3      2      1 |
+  |      6      5      4 |
+  |      9      8      7 |
+PRINTING g_result WITH atxy
+  |      3      2      1 |
+  |      6      5      4 |
+  |      9      8      7 |
+

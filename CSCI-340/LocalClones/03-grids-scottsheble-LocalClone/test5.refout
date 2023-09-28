@@ -1,0 +1,66 @@
+********************************************************************************
+* Fifth unit test - make sure this is right before moving on to next
+*   This one tests printing using column iterators, to make sure you've got
+* them working on at least that.
+********************************************************************************
+
+  CHECKING STATS FOR GRID g1
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+PRINTING NORMAL CONTENTS OF GRID (grid backed by vector<int>) USING ROW ITERATORS
+GRID (g1) PRINTING WITH ROW ITERATORS
+  | 101 102 103 104 105 106 107 108 |
+  | 201 202 203 204 205 206 207 208 |
+  | 301 302 303 304 305 306 307 308 |
+  | 401 402 403 404 405 406 407 408 |
+  | 501 502 503 504 505 506 507 508 |
+
+PRINTING TRANSPOSE OF GRID USING YOUR COLUMN ITERATORS
+  EXPECT:
+    | 101 201 301 ... |
+    | 102 202 302 ... |
+    | 103 203 303 ... |
+    | ...             |
+
+PRINTING TRANSPOSE OF g1 WITH COLUMN ITERATORS
+  | 101 201 301 401 501 |
+  | 102 202 302 402 502 |
+  | 103 203 303 403 503 |
+  | 104 204 304 404 504 |
+  | 105 205 305 405 505 |
+  | 106 206 306 406 506 |
+  | 107 207 307 407 507 |
+  | 108 208 308 408 508 |
+
+  CHECKING STATS FOR GRID g1
+    empty? no  - expected not empty - GOOD
+    width  = 8 - expected 8 - GOOD
+    height = 5 - expected 5 - GOOD
+
+PRINTING NORMAL CONTENTS OF GRID (grid backed by vector<float>) USING ROW ITERATORS
+GRID (g1) PRINTING WITH ROW ITERATORS
+  | 101 102 103 104 105 106 107 108 |
+  | 201 202 203 204 205 206 207 208 |
+  | 301 302 303 304 305 306 307 308 |
+  | 401 402 403 404 405 406 407 408 |
+  | 501 502 503 504 505 506 507 508 |
+
+PRINTING TRANSPOSE OF GRID USING YOUR COLUMN ITERATORS
+  EXPECT:
+    | 101 201 301 ... |
+    | 102 202 302 ... |
+    | 103 203 303 ... |
+    | ...             |
+
+PRINTING TRANSPOSE OF g1 WITH COLUMN ITERATORS
+  | 101 201 301 401 501 |
+  | 102 202 302 402 502 |
+  | 103 203 303 403 503 |
+  | 104 204 304 404 504 |
+  | 105 205 305 405 505 |
+  | 106 206 306 406 506 |
+  | 107 207 307 407 507 |
+  | 108 208 308 408 508 |
+
