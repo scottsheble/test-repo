@@ -18,8 +18,6 @@
 #include <ctime>
 using namespace std;
 
-int num;
-int countElements = 0;
 const int SET1_SIZE = 52;
 const int SET2_MAXSIZE = 80;
 const int SET3_MAXSIZE = 100;
@@ -32,19 +30,31 @@ int main()
 {
     srand(17);
 
+    std::cout << "Set 1 has exactly " << SET1_SIZE << " values" << std::endl;
     for (int i = 0, j = 1; i < 52; i++, j++) {
-        countElements++;
-        std::cout << 1 + rand() % 100 << " ";
-        if (j == 6) {
+        int num = rand();
+        //std::cout << 1 + rand() % 100 << " ";
+        std::cout << setw(12) << num;
+        if (j == VALUES_PER_LINE) {
             j = 0;
             std::cout << std::endl;
         }
         
 
     }
-    std::cout << "\n\nSet 1 has " << countElements << " values";
 
-    while (int i = 0, j = 1; i < 52; i++, j++)
+    // std::cout << "Set 1 has exactly " << SET1_SIZE << " values" << std::endl;
+    // for (int i = 0, j = 1; i < 52; i++, j++) {
+    //     int num = rand();
+    //     std::cout << 1 + rand() % 100 << " ";
+    //     if (j == 6) {
+    //         j = 0;
+    //         std::cout << std::endl;
+    //     }
+    // }
+
+
+    //while (int i = 0, j = 1; i < 52; i++, j++)
 
 
     return 0;
