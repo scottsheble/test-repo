@@ -12,12 +12,10 @@
 
     Created by scott sheble on 9/28/23.
 *********************************************************/
-
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
-
 using namespace std;
 
 int num;
@@ -25,11 +23,6 @@ int countElements = 0;
 
 int main()
 {
-    //srand(17);
-    //srand(time(0));
-    //num = rand();
-    //num = rand();
-    //srand(17);
     srand(17);
 
     for (int i = 0, j = 1; i < 52; i++, j++) {
