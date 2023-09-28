@@ -18,6 +18,7 @@
 #include <cstdlib>
 #include <ctime>
 
+int num;
 
 using namespace std;
 
@@ -26,6 +27,7 @@ int main()
 {
     srand(1);
     //srand(time(0));
+    num = rand();
 
 
     return 0;
