@@ -37,6 +37,8 @@ int main()
     }
     std::cout << "\n\nSet 1 has " << countElements << " values";
 
+    while (int i = 0, j = 1; i < 52; i++, j++)
+
 
     return 0;
 }
