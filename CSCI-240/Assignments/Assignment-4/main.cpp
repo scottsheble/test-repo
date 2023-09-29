@@ -32,9 +32,9 @@ int main()
     srand(17);
 
     std::cout << "Set 1 has exactly " << SET1_SIZE << " values" << std::endl;
+
     for (int i = 0, j = 1; i < 52; i++, j++) {
         int num = rand();
-        //std::cout << 1 + rand() % 100 << " ";
         std::cout << setw(12) << num;
         if (j == VALUES_PER_LINE) {
             j = 0;
@@ -44,10 +44,13 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
-    std::cout << "Set 2 has exactly " << SET2_MAXSIZE << " values" << std::endl;
+
+    int set2_size = rand() % SET2_MAXSIZE + 1;
+    std::cout << "Set 2 has exactly " << set2_size << " values" << std::endl;
+
     int elementCounter = 0;
     int lineCounter = 1;
-    while (elementCounter < SET2_MAXSIZE) {
+    while (elementCounter < set2_size) {
         int num = rand();
         cout << std::setw(12) << num;
         if (lineCounter == VALUES_PER_LINE) {
@@ -61,26 +64,23 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
 
-    double set3_size = (rand() % (MAX_RAND_DOUBLE_VALUE - MIN_RAND_DOUBLE_VALUE));
+
+    int set3_size = rand() % SET3_MAXSIZE + 1;
     std::cout << "Set 3 has exactly " << set3_size << " values" << std::endl;
+
     int double_count = 0;
     int doubleLineCounter = 1;
     do {
-        //double double_num = MIN_RAND_DOUBLE_VALUE + (rand() / (RAND_MAX / (MAX_RAND_DOUBLE_VALUE - MIN_RAND_DOUBLE_VALUE)));
-        double double_num = 0.5 + (rand() / (RAND_MAX / (230.5 - 0.5)));
+        double double_num = rand() % MAX_RAND_DOUBLE_VALUE;
         std::cout << fixed << setprecision(4) << std::setw(12) << double_num;
 
-        // if ((double_count + 1) % VALUES_PER_LINE == 0 || double_count == set3_size -1){
-        //     std::cout << std::endl;
-        // }
         if (doubleLineCounter == VALUES_PER_LINE) {
             doubleLineCounter = 0;
             std::cout << std::endl;
         }
         doubleLineCounter++;
-
-
         double_count++;
+
     } while (double_count <= set3_size);
 
     std::cout << std::endl;
