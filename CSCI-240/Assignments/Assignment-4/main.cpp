@@ -21,8 +21,8 @@ using namespace std;
 const int SET1_SIZE = 52;
 const int SET2_MAXSIZE = 80;
 const int SET3_MAXSIZE = 100;
-const int MIN_RAND_VALUE = 0;
-const int MAX_RAND_VALUE = 200;
+const int MIN_RAND_DOUBLE_VALUE = 0;
+const int MAX_RAND_DOUBLE_VALUE = 200;
 const int VALUES_PER_LINE = 6;
 
 
@@ -58,12 +58,12 @@ int main()
 
     std::cout << std::endl;
 
-    double set3_size = (rand() % (MAX_RAND_VALUE - MIN_RAND_VALUE));
+    double set3_size = (rand() % (MAX_RAND_DOUBLE_VALUE - MIN_RAND_DOUBLE_VALUE));
     std::cout << "Set 3 has exactly " << set3_size << " values" << std::endl;
     int double_count = 0;
     int doubleLineCounter = 1;
     do {
-        //double double_num = MIN_RAND_VALUE + (rand() / (RAND_MAX / (MAX_RAND_VALUE - MIN_RAND_VALUE)));
+        //double double_num = MIN_RAND_DOUBLE_VALUE + (rand() / (RAND_MAX / (MAX_RAND_DOUBLE_VALUE - MIN_RAND_DOUBLE_VALUE)));
         double double_num = 0.5 + (rand() / (RAND_MAX / (230.5 - 0.5)));
         std::cout << fixed << setprecision(4) << std::setw(12) << double_num;
 
