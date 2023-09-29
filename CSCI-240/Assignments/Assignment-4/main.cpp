@@ -71,7 +71,7 @@ int main()
     int double_count = 0;
     int doubleLineCounter = 1;
     do {
-        double double_num = rand() % MAX_RAND_DOUBLE_VALUE ;
+        double double_num = MIN_RAND_DOUBLE_VALUE + (rand() / (RAND_MAX / (MAX_RAND_DOUBLE_VALUE - MIN_RAND_DOUBLE_VALUE)));
         std::cout << fixed << setprecision(4) << std::setw(12) << double_num;
 
         if (doubleLineCounter == VALUES_PER_LINE) {
