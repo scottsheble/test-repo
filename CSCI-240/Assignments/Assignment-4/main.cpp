@@ -58,17 +58,18 @@ int main()
 
     std::cout << std::endl;
 
-    std::cout << "Set 3 has exactly " << SET3_MAXSIZE << " values" << std::endl;
+    int set3_size = rand() % SET3_MAXSIZE + 1;
+    std::cout << "Set 3 has exactly " << set3_size << " values" << std::endl;
+    int double_count = 0;
     do {
-        
-    }
+        double double_num = MIN_RAND_VALUE + (rand() / (RAND_MAX / (MAX_RAND_VALUE - MIN_RAND_VALUE)));
+        std::cout << fixed << setprecision(4) << std::setw(12) << double_num;
 
-
-
-
-    
-
-
+        if ((double_count + 1) % VALUES_PER_LINE == 0 || double_count == set3_size -1){
+            std::cout << std::endl;
+        }
+        double_count++;
+    } while (double_count < set3_size);
 
     return 0;
 }
