@@ -21,8 +21,8 @@ using namespace std;
 const int SET1_SIZE = 52;
 const int SET2_MAXSIZE = 80;
 const int SET3_MAXSIZE = 100;
-const int MIN_RAND_DOUBLE_VALUE = 0;
-const int MAX_RAND_DOUBLE_VALUE = 200;
+const double MIN_RAND_DOUBLE_VALUE = 0;
+const double MAX_RAND_DOUBLE_VALUE = 200;
 const int VALUES_PER_LINE = 6;
 
 
@@ -81,7 +81,7 @@ int main()
         doubleLineCounter++;
         double_count++;
 
-    } while (double_count <= set3_size);
+    } while (double_count < set3_size);
 
     std::cout << std::endl;
 
