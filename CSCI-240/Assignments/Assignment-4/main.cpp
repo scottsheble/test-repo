@@ -28,6 +28,7 @@ const int VALUES_PER_LINE = 6;
 
 int main()
 {
+    std::cout << std::endl;
     srand(17);
 
     std::cout << "Set 1 has exactly " << SET1_SIZE << " values" << std::endl;
@@ -40,6 +41,7 @@ int main()
             std::cout << std::endl;
         }
     }
+    std::cout << std::endl;
     std::cout << std::endl;
 
     std::cout << "Set 2 has exactly " << SET2_MAXSIZE << " values" << std::endl;
@@ -56,6 +58,7 @@ int main()
         lineCounter++;
     }
 
+    std::cout << std::endl;
     std::cout << std::endl;
 
     double set3_size = (rand() % (MAX_RAND_DOUBLE_VALUE - MIN_RAND_DOUBLE_VALUE));
@@ -79,6 +82,8 @@ int main()
 
         double_count++;
     } while (double_count <= set3_size);
+
+    std::cout << std::endl;
 
     return 0;
 }
