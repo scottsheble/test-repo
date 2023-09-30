@@ -31,6 +31,9 @@ int main()
     std::cout << std::endl;
     srand(17);
 
+    //Set 1 for loop generating random numbers and using variable j to check
+    //for a line break.
+
     std::cout << "Set 1 has exactly " << SET1_SIZE << " values" << std::endl;
 
     for (int i = 0, j = 1; i < 52; i++, j++) {
@@ -43,6 +46,10 @@ int main()
     }
     std::cout << std::endl;
     std::cout << std::endl;
+
+    //Set 2 while loop generating random numbers up until its set size and
+    //using variables elementCounter and lineCounter to increment each
+    //element until the sets size, and check for line breaks.
 
 
     int set2_size = rand() % SET2_MAXSIZE + 1;
@@ -63,6 +70,10 @@ int main()
 
     std::cout << std::endl;
     std::cout << std::endl;
+
+    //Set 3 generating random variables in a do while loop, using variables 
+    //double_count to generate a random double variable, and doubleLineCount
+    //to check for a line break.
 
 
     int set3_size = rand() % SET3_MAXSIZE + 1;
