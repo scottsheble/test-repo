@@ -26,6 +26,10 @@ int main()
   //Otherwise display a formatted "ODD" message.
   
 
+for (int i=0; i<5; i++){
+  cout << i + 1;
+  cout << i;
+}
  
   return 0;
 }
