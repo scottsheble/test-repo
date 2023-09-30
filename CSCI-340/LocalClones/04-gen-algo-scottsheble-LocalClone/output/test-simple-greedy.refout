@@ -1,0 +1,34 @@
+********************************************************************************
+* test-simple-greedy                                                            
+*  This test program tests your split_string_greedy function in isolation. A    
+* default string to split and a default delimiter are chosen if you run the     
+* program without command line arguments, and this was used to generate the     
+* reference output.                                                             
+*                                                                               
+*  If you want to test with other strings/delimiters, you can pass the string   
+* to split as the first command line parameter, and the delimiter to use as     
+* the second. Make sure you use quotes.                                         
+*                                                                               
+********************************************************************************
+
+**** TESTING split_string_greedy ****
+Input String: "  This is    a  long   string  with   lots   of spaces    and you need to greedily  split it.  "
+Using delimiter ' '
+Token 0) "This"
+Token 1) "is"
+Token 2) "a"
+Token 3) "long"
+Token 4) "string"
+Token 5) "with"
+Token 6) "lots"
+Token 7) "of"
+Token 8) "spaces"
+Token 9) "and"
+Token 10) "you"
+Token 11) "need"
+Token 12) "to"
+Token 13) "greedily"
+Token 14) "split"
+Token 15) "it."
+**** DONE - FOUND 16 TOKENS ****
+

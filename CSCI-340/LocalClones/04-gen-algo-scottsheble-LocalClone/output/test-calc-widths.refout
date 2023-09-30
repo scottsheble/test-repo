@@ -1,0 +1,47 @@
+********************************************************************************
+* test-calc-widths                                                              
+*                                                                               
+*  This program tests your calc_widths function implementation. It does assume  
+* that you've already properly implemented print_table, so make sure to fix     
+* that first.                                                                   
+*                                                                               
+*  It runs calc_width on a couple of pre-defined tables and prints them out     
+* with the caculated widths.                                                    
+*                                                                               
+*  The reference output was done by running this program without command line   
+* arguments.                                                                    
+*                                                                               
+* % ./test-calc-widths                                                          
+*                                                                               
+********************************************************************************
+
+**** TESTING print_table ON string table 1 ****
+  Column Widths:
+    Column 0: 7 wide
+    Column 1: 7 wide
+    Column 2: 5 wide
+    Column 3: 10 wide
+    Column 4: 4 wide
+
+  TABLE:
+    [ This    | table   | is    | filled     | with ]
+    [ strings | instead | of    | integers   | so   ]
+    [ we      | can     | test  | displaying | data ]
+    [ like    | what    | would | be         | read ]
+    [ from    | the     | input | files.     | !!!! ]
+
+**** TESTING print_table ON string table 2 ****
+  Column Widths:
+    Column 0: 10 wide
+    Column 1: 8 wide
+    Column 2: 9 wide
+    Column 3: 7 wide
+    Column 4: 7 wide
+
+  TABLE:
+    [ Another    | table    | full      | of      | strings ]
+    [ that       | had some | different | lengths | of      ]
+    [ strings    | was      | necessary | to      | make    ]
+    [ a          | good     | test      | of      | the     ]
+    [ calc_width | function | you       | must    | do      ]
+

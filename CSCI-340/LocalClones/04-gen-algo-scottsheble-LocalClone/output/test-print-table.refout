@@ -1,0 +1,58 @@
+********************************************************************************
+* test-print-table                                                              
+*                                                                               
+*  This test program allows you to work with your print_table function without  
+* requiring many of the other features. It has pre-defined widths and some      
+* pre-defined tables, which it uses your print_table function to display.       
+* one.                                                                          
+*                                                                               
+*  The reference output was made by running this program without command line   
+* arguments.                                                                    
+*                                                                               
+********************************************************************************
+
+**** TESTING print_table ON int table ****
+  Column Widths:
+    Column 0: 10 wide
+    Column 1: 10 wide
+    Column 2: 9 wide
+    Column 3: 10 wide
+    Column 4: 7 wide
+
+  TABLE:
+    [          1 |          2 |         3 |          4 |       5 ]
+    [        200 |        400 |        30 |        902 |      70 ]
+    [         31 |         42 |        69 |        420 |       6 ]
+    [         50 |         63 |        99 |         32 |       7 ]
+    [         33 |         47 |        56 |        101 |      42 ]
+
+**** TESTING print_table ON string table 1 ****
+  Column Widths:
+    Column 0: 10 wide
+    Column 1: 10 wide
+    Column 2: 9 wide
+    Column 3: 10 wide
+    Column 4: 7 wide
+
+  TABLE:
+    [ This       | table      | is        | filled     | with    ]
+    [ strings    | instead    | of        | integers   | so      ]
+    [ we         | can        | test      | displaying | data    ]
+    [ like       | what       | would     | be         | read    ]
+    [ from       | the        | input     | files.     | !!!!    ]
+
+**** TESTING print_table ON string table 2 ****
+  Column Widths:
+    Column 0: 10 wide
+    Column 1: 10 wide
+    Column 2: 9 wide
+    Column 3: 10 wide
+    Column 4: 7 wide
+
+  TABLE:
+    [ Another    | table      | full      | of         | strings ]
+    [ that       | had some   | different | lengths    | of      ]
+    [ strings    | was        | necessary | to         | make    ]
+    [ a          | good       | test      | of         | the     ]
+    [ calc_width | function   | you       | must       | do      ]
+
