@@ -3,9 +3,11 @@
 
 #include "solution.h"
 
-using std::vector;
+using namespace std;
+//using std::vector;
 using std::cout;
 using std::endl;
+
 
 void printVector(const vector<int> & v) {
     cout << "{ ";
