@@ -9,7 +9,7 @@ void mixNumbers(ForwardIterator begin, ForwardIterator end)
 {
     ForwardIterator current = begin; // Use the passed begin iterator
     ForwardIterator next;
-
+ 
     while (current != end)
     {
         int value = *current;
