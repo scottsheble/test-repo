@@ -12,6 +12,7 @@ int findmiddle(std::vector<std::vector<int>>& vecs, int& p) {
         return 0;  
     }
 
+
     int middle = S / 2;
     int currentLength = 0;
 
