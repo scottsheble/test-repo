@@ -67,9 +67,6 @@ Midterm exam Wed. Oct. 18.
 
 *** Emails/Calls ***
 
-Respond to Daniel Pre-Major Meeting
-
-Call about final transcript
 
 Student loans Aidvantage
 
