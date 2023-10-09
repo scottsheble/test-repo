@@ -125,6 +125,29 @@ void print_table(std::ostream & ost,
                  const std::string &sep,
                  const std::string &post,
                  bool leftalign) 
+  // {
+    
+
+  //   for (size_t i = 0; i < table.size(); i++) {
+  //     ost << pre;
+  //     unsigned int count = 0;
+  //     for (size_t j = 0; j < table[i].size(); j++) {
+  //       if (count >= maxcol){
+  //         break;
+
+  //       }
+  //       if (leftalign) {
+  //         ost << std::left;
+  //       }
+
+  //       ost << std::setw(widths[count]) << table[i][j] << sep;
+  //       count++;
+
+  //     }
+  //     ost << post << std::endl;
+  //   }
+
+  // }
 {
     // iterate through each row in table
     for (const auto &row : table) {  
