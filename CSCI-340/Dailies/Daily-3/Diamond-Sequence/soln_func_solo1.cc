@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 vector<int> diamondsequence(vector<vector<int>> &m)
 {
     vector<int> diamondsequence;
