@@ -5,12 +5,12 @@
 
     Section: 1
 
-    Date Due: 9/29/2023
+    Date Due: 10/13/23
 
     Purpose: This program demonstrates generating three 
     sets of random numbers.
 
-    Created by scott sheble on 9/28/23.
+    Created by scott sheble on 10/01/23.
 *********************************************************/
 #include <iostream>
 #include <iomanip>
