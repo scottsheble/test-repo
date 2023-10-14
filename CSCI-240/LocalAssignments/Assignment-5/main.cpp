@@ -13,88 +13,126 @@
     Created by scott sheble on 10/01/23.
 *********************************************************/
 #include <iostream>
-#include <iomanip>
 #include <cstdlib>
-#include <ctime>
-using namespace std;
 
-const int SET1_SIZE = 52;
-const int SET2_MAXSIZE = 80;
-const int SET3_MAXSIZE = 100;
-const double MIN_RAND_DOUBLE_VALUE = 0;
-const double MAX_RAND_DOUBLE_VALUE = 200;
-const int VALUES_PER_LINE = 6;
+// Symbolic Constants: Monster type
+const int GOBLIN = 0;
+const int OGRE = 1;
+const int DRAGON = 2;
+// Symbolic Constants: Attack critical type
+const int CRITICAL_FAILURE = 1;
+const int CRITICAL_SUCCESS = 20;
+// Symbolic Constants: Player health & armor
+const int PLAYER_MAX_HP_MIN = 50;
+const int PLAYER_MAX_HP_MAX = 150;
+const int PLAYER_AC_MIN = 1;
+const int PLAYER_AC_MAX = 4;
+// Symbolic Constants: Monster health & armor
+const int MONSTER_HP[3] = {30, 75, 345};
+const int MONSTER_AC[3] = {1, 2, 5};
+const std::string MONSTER_NAMES[3] = {"Goblin", "Ogre", "Dragon"};
 
+// 8-sided dice roll
+int rollD8() {
+    return rand() % 8 + 1;
+}
 
-int main()
-{
-    std::cout << std::endl;
-    srand(17);
+// 20-sided dice roll
+int rollD20() {
+    return rand() % 20 + 1;
+}
 
-    //Set 1 for loop generating random numbers and using variable j to check
-    //for a line break.
-
-    std::cout << "Set 1 has exactly " << SET1_SIZE << " values" << std::endl;
-
-    for (int i = 0, j = 1; i < 52; i++, j++) {
-        int num = rand();
-        std::cout << setw(12) << num;
-        if (j == VALUES_PER_LINE) {
-            j = 0;
-            std::cout << std::endl;
+// Player's attack function, if branching determining the console output dependent on critical success/failure.
+int playerAttack(int armor_class, int& player_health) {
+    int attack_roll = rollD8();
+    if (attack_roll > armor_class) {
+        int damage_roll = rollD20();
+        if (damage_roll == CRITICAL_FAILURE) {
+            std::cout << "Critical failure! The player swings wildly, loses balance, and bumps their head on a wall. -1 HP." << std::endl;
+            player_health--;
+        } else if (damage_roll == CRITICAL_SUCCESS) {
+            std::cout << "The attack hits! Natural 20! The player expertly attacks the monster's exposed weaknesses, dealing -25 HP to it!" << std::endl;
+            return 25;
+        } else {
+            return damage_roll;
         }
     }
-    std::cout << std::endl;
-    std::cout << std::endl;
+    return 0;
+}
 
-    //Set 2 while loop generating random numbers up until its set size and
-    //using variables elementCounter and lineCounter to increment each
-    //element until the sets size, and check for line breaks.
-
-
-    int set2_size = rand() % SET2_MAXSIZE + 1;
-    std::cout << "Set 2 has exactly " << set2_size << " values" << std::endl;
-
-    int elementCounter = 0;
-    int lineCounter = 1;
-    while (elementCounter < set2_size) {
-        int num = rand();
-        cout << std::setw(12) << num;
-        if (lineCounter == VALUES_PER_LINE) {
-            lineCounter = 0;
-            std::cout << std::endl;
+// Monster's attack function, if branching determining the console output dependent on critical success/failure.
+int monsterAttack(int armor_class, int& monster_health) {
+    int attack_roll = rollD8();
+    if (attack_roll > armor_class) {
+        int damage_roll = rollD20();
+        if (damage_roll == CRITICAL_FAILURE) {
+            std::cout << "Critical failure! The monster recklessly attacks, slips, and bumps their head on the floor. -1 HP." << std::endl;
+            monster_health--;
+        } else if (damage_roll == CRITICAL_SUCCESS) {
+            std::cout << "The attack hits! Natural 20! The monster's combat prowess becomes the stuff of nightmares, savagely rending the player, dealing -25 HP to them!" << std::endl;
+            return 25;
+        } else {
+            return damage_roll;
         }
-        elementCounter++;
-        lineCounter++;
+    }
+    return 0;
+}
+
+int main() {
+    srand(14);
+    int player_max_health = rand() % (PLAYER_MAX_HP_MAX - PLAYER_MAX_HP_MIN + 1) + PLAYER_MAX_HP_MIN;
+    int player_health = player_max_health;
+    int player_armor_class = rand() % (PLAYER_AC_MAX - PLAYER_AC_MIN + 1) + PLAYER_AC_MIN;
+    int monster_type = rand() % 3;
+    std::cout << std::endl;
+    std::cout << "The player's maximum HP is " << player_health << std::endl;
+    std::cout << "The player's armor class is " << player_armor_class << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "  You encounter a " << MONSTER_NAMES[monster_type] << ". This should be easy enough!" << std::endl;
+
+    int monster_health = MONSTER_HP[monster_type];
+    int monster_armor_class = MONSTER_AC[monster_type];
+    std::cout << "The monster's maximum HP is " << monster_health << std::endl;
+    std::cout << "The monster's armor class is " << monster_armor_class << std::endl;
+    std::cout << std::endl;
+
+    int counter = 0;
+
+    while (player_health > 0) {
+        int player_damage = playerAttack(monster_armor_class, player_health);
+        if (player_damage > 0) {
+            monster_health -= player_damage;
+        }
+        std::cout << "The attack hits! The player damages for -" << player_damage << "HP to the monster. Monster's current HP: " << monster_health << std::endl;
+
+        if (monster_health <= 0) {
+            counter++;
+            std::cout << "The monster has been slain! The adrenaline rush from the victory restores their HP to full!" << std::endl;
+            std::cout << std::endl;
+            std::cout << "-----------------------------------------------------------" << std::endl;
+            std::cout << std::endl;
+
+            // Generate next monster.
+            monster_type = rand() % 3;
+            std::cout << "You encounter a  " << MONSTER_NAMES[monster_type] << ". This should be easy enough!" << std::endl;
+            monster_health = MONSTER_HP[monster_type];
+            monster_armor_class = MONSTER_AC[monster_type];
+        } else {
+            int monster_damage = monsterAttack(player_armor_class, player_health);
+            if (monster_damage > 0) {
+                player_health -= monster_damage;
+            }
+            std::cout << "The attack hits! The monster damages for -" << monster_damage << "HP to the player. Player's current HP: " << player_health << "\n" << std::endl;
+        }
     }
 
+    std::cout << "Gasping for breath and realizing their mother wasn't wrong when they suggested they just stay on the farm and live a quiet life, the player passes away!" << std::endl;
     std::cout << std::endl;
     std::cout << std::endl;
-
-    //Set 3 generating random variables in a do while loop, using variables 
-    //double_count to generate a random double variable, and doubleLineCount
-    //to check for a line break.
-
-
-    int set3_size = rand() % SET3_MAXSIZE + 1;
-    std::cout << "Set 3 has exactly " << set3_size << " values" << std::endl;
-
-    int double_count = 0;
-    int doubleLineCounter = 1;
-    do {
-        double double_num = MIN_RAND_DOUBLE_VALUE + (rand() / (RAND_MAX / (MAX_RAND_DOUBLE_VALUE - MIN_RAND_DOUBLE_VALUE)));
-        std::cout << fixed << setprecision(4) << std::setw(12) << double_num;
-
-        if (doubleLineCounter == VALUES_PER_LINE) {
-            doubleLineCounter = 0;
-            std::cout << std::endl;
-        }
-        doubleLineCounter++;
-        double_count++;
-
-    } while (double_count < set3_size);
-
+    std::cout << "-----------------------------------------------------------";
     std::cout << std::endl;
+    std::cout << "Monster kill streak: " << counter << std::endl;
 
     return 0;
 }
