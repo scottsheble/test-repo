@@ -20,7 +20,6 @@
 #include <cstdlib>
 #include <sstream>
 
-
 /**
  * @brief This function will use getline on the istream passed in as instream. Every line in the
  * file should be read, until the EOF. For each line read, call the "callback" function, linecb, 
