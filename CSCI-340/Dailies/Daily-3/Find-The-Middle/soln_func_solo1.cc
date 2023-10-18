@@ -21,4 +21,5 @@ int findmiddle(std::vector<std::vector<int>> &vecs, int &p) {
         count += vec.size();
     }
     return S % 2 == 1 ? 1 : 0;
+    
 }
