@@ -35,6 +35,14 @@ int sumOfASCII( int limit ); //This function will calculate the sum of the ASCII
 
 void NIUchant(int iterations); //This function will display an iterations number of words from the NIU school chant: Forward! Together, Forward! Make sure to include spaces after each word or token, as well as two (2) newline characters once the list of words has finished printing.
 
+int main()
+{
+
+}
+
+
+
+
 int Menu()
 {
     return 0;
