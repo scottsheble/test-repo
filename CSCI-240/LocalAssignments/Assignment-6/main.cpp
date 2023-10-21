@@ -22,6 +22,9 @@
     Created by scott sheble on 10/01/23.
 *********************************************************/
 #include <iostream>
+#include <string>
+
+using namespace std;
 
 //prototypes
 int Menu(); 
@@ -31,17 +34,50 @@ double averageOfCubes( int limit );
 int sumOfASCII( int limit ); 
 void NIUchant( int iterations );
 
-using namespace std;
 
+int main() {
+    int choice;
 
+    do {
+        choice = Menu(); // Display menu and get user's choice.
 
-int main()
-{
+        if (choice == 1) {
+            int limit = getValue("How many squares will we summate?", 2, 20);
+            int result = sumOfSquares(limit);
+            cout << "The sum of the first " << limit << " positive numbers squared is " << result << endl;
+        } else if (choice == 2) {
+            int limit = getValue("How many cubes will we average?", 2, 20);
+            double result = averageOfCubes(limit);
+            cout << "The average of the first " << limit << " positive numbers cubed is " << result << endl;
+        } else if (choice == 3) {
+            int limit = getValue("How many ASCII values will we summate?", 1, 26);
+            char charChoice;
+            cout << "Would you like to summate (L)owercase or (U)ppercase characters? ";
+            cin >> charChoice;
+            int result = 0;
 
-return 0;
+            if (charChoice == 'L' || charChoice == 'l') {
+                result = sumOfASCII(limit);
+                cout << "The sum of the first " << limit << " ASCII character values is " << result << endl;
+            } else if (charChoice == 'U' || charChoice == 'u') {
+                result = sumOfASCII(limit);
+                cout << "The sum of the first " << limit << " uppercase ASCII character values is " << result << endl;
+            } else {
+                cout << "Invalid choice. Please enter 'L' for lowercase or 'U' for uppercase characters." << endl;
+            }
+        } else if (choice == 4) {
+            int iterations = getValue("How many words will be iterated from the NIU Chant?", 3, 50);
+            NIUchant(iterations);
+        } else if (choice == 5) {
+            cout << "Ending program..." << endl;
+        } else {
+            
+            cout << "Invalid choice. Please enter a number between 1 and 5." << endl;
+        }
+    } while (choice != 5);
+
+    return 0;
 }
-
-
 
 /**
  * @brief This function displays a menu and gets a choice from 
@@ -56,15 +92,15 @@ int Menu()
 
     do {
 
-        std::cout << "Objectives" << std::endl << std::endl;
+        std::cout << "Objectives" << "\n\n";
         std::cout << "1) Calculate the sum of the first N squared numbers" << std::endl;
         std::cout << "2) Calculate the average of the first N cubed numbers" << std::endl;
         std::cout << "3) Calculate the sum of the ASCII value of the first N characters" << std::endl;
         std::cout << "4) Word iterations from the NIU school chant." << std::endl << std::endl;
-        std::cout << "5) Quit" << std::endl;
-        std::cout << "Enter your choice:" << std::endl;
-
+        std::cout << "5) Quit" << "\n\n";
+        std::cout << "Enter your choice: "; 
         std::cin >> choice; //user choice for menu option.
+        std::cout << "\n\n";
 
         if (choice < 1 || choice > 5) 
         {
@@ -164,21 +200,6 @@ int sumOfASCII(int limit)
 {
     char startingChar; //starting character for static_cast loop.
     int sum = 0;
-
-    char choice;
-    std::cout << "Would you like to summate (L)owercase or (U)ppercase characters? ";
-    std::cin >> choice;
-
-    if (choice == 'L' || choice == 'l') 
-    {
-        startingChar = 'a';
-    } else if (choice == 'U' || choice == 'u') 
-    {
-        startingChar = 'A';
-    } else {
-        std::cout << "Invalid choice. Please enter 'L' for lowercase or 'U' for uppercase characters." << std::endl;
-        return 0;  // Return 0 to indicate an error
-    }
 
     // calculate sum of ASCII values by static_cast.
     for (char i = startingChar; i < startingChar + limit; i++) 
