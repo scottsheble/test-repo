@@ -8,6 +8,38 @@ This program tests the NIUchant function
 using namespace std;
 
 
+void NIUchant(int iterations)
+{
+    std::string chant = "Forward! Together, Forward!";
+    int chantLength = chant.length();
+
+    // display number of iterations specified.
+    for (int i = 0; i < iterations; i++) 
+    {
+        int startIndex = i * chantLength;
+        int endIndex = startIndex + chantLength;
+
+        if (endIndex > chantLength) 
+        {
+            // wrap back to startIndex if end of chant.
+            startIndex = startIndex % chantLength;
+            endIndex = chantLength;
+        }
+
+        std::string word = chant.substr(startIndex, endIndex - startIndex);
+
+        std::cout << word;
+
+        // adding space after each word/token.
+        if (i < iterations - 1) 
+        {
+            std::cout << " ";
+        }
+    }
+
+    std::cout << std::endl << std::endl; // adding 2 newlines at end of chant.
+}
+
 
 int main()
   {

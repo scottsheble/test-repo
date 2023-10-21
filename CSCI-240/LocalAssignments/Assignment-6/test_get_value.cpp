@@ -7,6 +7,28 @@ This program tests the getValue function
 
 using namespace std;
 
+int getValue(string prompt, int lowerBound, int upperBound)
+{
+    int value;
+    bool validValue = false; //check if value is valid.
+
+    do {
+        // displays prompt and range.
+        std::cout << prompt << " (" << lowerBound << " - " << upperBound << "): ";
+        std::cin >> value;
+
+        // check for valid input.
+        if (value < lowerBound || value > upperBound) 
+        {
+            std::cin.clear();
+            std::cout << "Invalid value. Please enter a number within the specified range." << std::endl;
+        } else {
+            validValue = true;
+        }
+    } while (!validValue);
+
+    return value;
+}
 
 int main()
   {

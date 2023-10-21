@@ -9,6 +9,35 @@ using namespace std;
 
 void displayHelp();
 
+int sumOfASCII(int limit)
+{
+    char startingChar; //starting character for static_cast loop.
+    int sum = 0;
+
+    char choice;
+    std::cout << "Would you like to summate (L)owercase or (U)ppercase characters? ";
+    std::cin >> choice;
+
+    if (choice == 'L' || choice == 'l') 
+    {
+        startingChar = 'a';
+    } else if (choice == 'U' || choice == 'u') 
+    {
+        startingChar = 'A';
+    } else {
+        std::cout << "Invalid choice. Please enter 'L' for lowercase or 'U' for uppercase characters." << std::endl;
+        return 0;  // Return 0 to indicate an error
+    }
+
+    // calculate sum of ASCII values by static_cast.
+    for (char i = startingChar; i < startingChar + limit; i++) 
+    {
+        sum += static_cast<int>(i); //type conversion to int.
+    }
+
+    return sum;
+}
+
 int main()
   {
   int result;

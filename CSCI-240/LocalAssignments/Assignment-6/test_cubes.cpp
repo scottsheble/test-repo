@@ -7,7 +7,17 @@ This program tests the averageOfCubes function
 
 using namespace std;
 
+double averageOfCubes(int limit)
+{
+    double sum = 0.0;
 
+    for (int i = 0; i < limit; i++) 
+    {
+        sum += (i * i * i);
+    }
+
+    return (sum / (limit)); //returns average of cubes. 
+}
 
 int main()
   {

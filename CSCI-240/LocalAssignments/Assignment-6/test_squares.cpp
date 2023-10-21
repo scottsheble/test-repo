@@ -7,6 +7,17 @@ This program test the sumOfSquares function
 
 using namespace std;
 
+int sumOfSquares(int limit)
+{
+    int sum = 0;
+
+    for (int i = 1; i <= limit; i++) 
+    {
+        sum += i * i;
+    }
+
+    return sum;
+}
 
 int main()
   {

@@ -7,6 +7,34 @@ This program tests the Menu function
 
 using namespace std;
 
+int Menu()
+{
+    int choice;
+    bool viableChoice = false; //boolean for determining if user choice is viable.
+
+    do {
+
+        std::cout << "Objectives" << std::endl << std::endl;
+        std::cout << "1) Calculate the sum of the first N squared numbers" << std::endl;
+        std::cout << "2) Calculate the average of the first N cubed numbers" << std::endl;
+        std::cout << "3) Calculate the sum of the ASCII value of the first N characters" << std::endl;
+        std::cout << "4) Word iterations from the NIU school chant." << std::endl << std::endl;
+        std::cout << "5) Quit" << std::endl;
+        std::cout << "Enter your choice:" << std::endl;
+
+        std::cin >> choice; //user choice for menu option.
+
+        if (choice < 1 || choice > 5) 
+        {
+            std::cin.clear();
+            std::cout << "Invalid choice. Please enter a number between 1 and 5." << std::endl;
+        } else {
+            viableChoice = true;
+        }
+    } while (!viableChoice);
+        
+    return choice; //returns user's choice.
+}
 
 int main()
   {
