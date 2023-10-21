@@ -51,19 +51,33 @@ return 0;
  */
 int Menu()
 {
-    std::cout << "Objectives" << std::endl << std::endl;
-    std::cout << "1) Calculate the sum of the first N squared numbers" << std::endl;
-    std::cout << "2) Calculate the average of the first N cubed numbers" << std::endl;
-    std::cout << "3) Calculate the sum of the ASCII value of the first N characters" << std::endl;
-    std::cout << "4) Word iterations from the NIU school chant." << std::endl << std::endl;
-    std::cout << "5) Quit" << std::endl;
-    std::cout << "Enter your choice:" << std::endl;
+    int choice;
+    bool viableChoice = false; //boolean for determining if user choice is viable.
 
+    do {
 
+        std::cout << "Objectives" << std::endl << std::endl;
+        std::cout << "1) Calculate the sum of the first N squared numbers" << std::endl;
+        std::cout << "2) Calculate the average of the first N cubed numbers" << std::endl;
+        std::cout << "3) Calculate the sum of the ASCII value of the first N characters" << std::endl;
+        std::cout << "4) Word iterations from the NIU school chant." << std::endl << std::endl;
+        std::cout << "5) Quit" << std::endl;
+        std::cout << "Enter your choice:" << std::endl;
 
-    return 0;
+        std::cin >> choice; //user choice for menu option.
+
+        if (choice < 1 || choice > 5) 
+        {
+            std::cin.clear();
+            std::cout << "Invalid choice. Please enter a number between 1 and 5." << std::endl;
+        } else {
+            viableChoice = true;
+        }
+    } while (!viableChoice);
+        
+    return choice; //returns user's choice.
 }
-
+    
 /**
  * @brief Get the Value object. This function will get an 
  * integer value from the user that is within a specified 
@@ -76,7 +90,25 @@ int Menu()
  */
 int getValue(string prompt, int lowerBound, int upperBound)
 {
-    return 0;
+    int value;
+    bool validValue = false; //check if value is valid.
+
+    do {
+        // displays prompt and range.
+        std::cout << prompt << " (" << lowerBound << " - " << upperBound << "): ";
+        std::cin >> value;
+
+        // check for valid input.
+        if (value < lowerBound || value > upperBound) 
+        {
+            std::cin.clear();
+            std::cout << "Invalid value. Please enter a number within the specified range." << std::endl;
+        } else {
+            validValue = true;
+        }
+    } while (!validValue);
+
+    return value;
 }
 
 /**
@@ -89,8 +121,16 @@ int getValue(string prompt, int lowerBound, int upperBound)
  */
 int sumOfSquares(int limit)
 {
-    return 0;
+    int sum = 0;
+
+    for (int i = 1; i <= limit; i++) 
+    {
+        sum += i * i;
+    }
+
+    return sum;
 }
+
 
 /**
  * @brief This function will calculate the average of all the 
@@ -102,7 +142,14 @@ int sumOfSquares(int limit)
  */
 double averageOfCubes(int limit)
 {
-    return 0.0;
+    double sum = 0.0;
+
+    for (int i = 0; i < limit; i++) 
+    {
+        sum += (i * i * i);
+    }
+
+    return (sum / (limit)); //returns average of cubes. 
 }
 
 /**
@@ -115,7 +162,32 @@ double averageOfCubes(int limit)
  */
 int sumOfASCII(int limit)
 {
-    return 0;
+    char startChar;
+    int sum = 0;
+
+    // Ask the user to choose between lowercase or uppercase characters
+    char choice;
+    std::cout << "Would you like to summate (L)owercase or (U)ppercase characters? ";
+    std::cin >> choice;
+
+    if (choice == 'L' || choice == 'l') 
+    {
+        startChar = 'a';
+    } else if (choice == 'U' || choice == 'u') 
+    {
+        startChar = 'A';
+    } else {
+        std::cout << "Invalid choice. Please enter 'L' for lowercase or 'U' for uppercase characters." << std::endl;
+        return 0;  // Return 0 to indicate an error
+    }
+
+    // Calculate the sum of ASCII values
+    for (char i = startChar; i < startChar + limit; i++) 
+    {
+        sum += static_cast<int>(i);
+    }
+
+    return sum;
 }
 
 /**
