@@ -21,7 +21,7 @@
 
     Created by scott sheble on 10/01/23.
 *********************************************************/
-using namespace std;
+#include <iostream>
 
 //prototypes
 int Menu(); 
@@ -31,20 +31,12 @@ double averageOfCubes( int limit );
 int sumOfASCII( int limit ); 
 void NIUchant( int iterations );
 
+using namespace std;
+
 
 
 int main()
 {
-    std::cout << "Objectives" << std::endl << std::endl;
-    std::cout << "1) Calculate the sum of the first N squared numbers" << std::endl;
-    std::cout << "2) Calculate the average of the first N cubed numbers" << std::endl;
-    std::cout << "3) Calculate the sum of the ASCII value of the first N characters" << std::endl;
-    std::cout << "4) Word iterations from the NIU school chant." << std::endl << std::endl;
-    std::cout << "5) Quit" << std::endl;
-    std::cout << "Enter your choice:" << std::endl;
-
-
-
 
 return 0;
 }
@@ -58,6 +50,16 @@ return 0;
  */
 int Menu()
 {
+    std::cout << "Objectives" << std::endl << std::endl;
+    std::cout << "1) Calculate the sum of the first N squared numbers" << std::endl;
+    std::cout << "2) Calculate the average of the first N cubed numbers" << std::endl;
+    std::cout << "3) Calculate the sum of the ASCII value of the first N characters" << std::endl;
+    std::cout << "4) Word iterations from the NIU school chant." << std::endl << std::endl;
+    std::cout << "5) Quit" << std::endl;
+    std::cout << "Enter your choice:" << std::endl;
+
+
+    
     return 0;
 }
 
