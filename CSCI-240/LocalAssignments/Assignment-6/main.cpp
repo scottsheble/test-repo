@@ -71,7 +71,6 @@ int main() {
         } else if (choice == 5) {
             cout << "Ending program..." << endl;
         } else {
-            
             cout << "Invalid choice. Please enter a number between 1 and 5." << endl;
         }
     } while (choice != 5);
