@@ -162,29 +162,28 @@ double averageOfCubes(int limit)
  */
 int sumOfASCII(int limit)
 {
-    char startChar;
+    char startingChar; //starting character for static_cast loop.
     int sum = 0;
 
-    // Ask the user to choose between lowercase or uppercase characters
     char choice;
     std::cout << "Would you like to summate (L)owercase or (U)ppercase characters? ";
     std::cin >> choice;
 
     if (choice == 'L' || choice == 'l') 
     {
-        startChar = 'a';
+        startingChar = 'a';
     } else if (choice == 'U' || choice == 'u') 
     {
-        startChar = 'A';
+        startingChar = 'A';
     } else {
         std::cout << "Invalid choice. Please enter 'L' for lowercase or 'U' for uppercase characters." << std::endl;
         return 0;  // Return 0 to indicate an error
     }
 
-    // Calculate the sum of ASCII values
-    for (char i = startChar; i < startChar + limit; i++) 
+    // calculate sum of ASCII values by static_cast.
+    for (char i = startingChar; i < startingChar + limit; i++) 
     {
-        sum += static_cast<int>(i);
+        sum += static_cast<int>(i); //type conversion to int.
     }
 
     return sum;
@@ -201,7 +200,34 @@ int sumOfASCII(int limit)
  */
 void NIUchant(int iterations)
 {
+    std::string chant = "Forward! Together, Forward!";
+    int chantLength = chant.length();
 
+    // display number of iterations specified.
+    for (int i = 0; i < iterations; i++) 
+    {
+        int startIndex = i * chantLength;
+        int endIndex = startIndex + chantLength;
+
+        if (endIndex > chantLength) 
+        {
+            // wrap back to startIndex if end of chant.
+            startIndex = startIndex % chantLength;
+            endIndex = chantLength;
+        }
+
+        std::string word = chant.substr(startIndex, endIndex - startIndex);
+
+        std::cout << word;
+
+        // adding space after each word/token.
+        if (i < iterations - 1) 
+        {
+            std::cout << " ";
+        }
+    }
+
+    std::cout << std::endl << std::endl; // adding 2 newlines at end of chant.
 }
 
 
