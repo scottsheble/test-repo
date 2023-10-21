@@ -35,7 +35,8 @@ int sumOfASCII( int limit );
 void NIUchant( int iterations );
 
 
-int main() {
+int main() 
+{
     int choice;
 
     do {
