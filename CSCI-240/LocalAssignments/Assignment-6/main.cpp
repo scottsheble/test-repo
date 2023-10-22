@@ -26,7 +26,6 @@
 
 using namespace std;
 
-
 //prototypes
 int Menu(); 
 int getValue( string prompt, int lowerBound, int upperBound ); 
