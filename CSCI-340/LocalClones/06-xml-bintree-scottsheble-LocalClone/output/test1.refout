@@ -30,14 +30,14 @@
 ********************************************************************************
 * TESTING YOUR TRAVERSAL ALGORITHMS
 ********************************************************************************
-         preorder: a f i j g h b c d e 
-           expect: a f i j g h b c d e
+         preorder: a b f g i j h c d e 
+           expect: a b f g i j h c d e
 
           inorder: f i j g h b c d e a 
            expect: f i j g h b c d e a
 
-        postorder: f i j g h b c d e a 
-           expect: f i j g h b c d e a
+        postorder: j i h g f e d c b a 
+           expect: j i h g f e d c b a
 
        levelorder: a b f c g d i h e j 
            expect: a b f c g d i h e j

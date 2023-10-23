@@ -83,7 +83,7 @@ int main() {
   std::cout << "********************************************************************************\n";
   std::cout << "         preorder: "; preorder(tree, print);
   std::cout << "\n";
-  std::cout << "           expect: a f i j g h b c d e\n\n";
+  std::cout << "           expect: a b f g i j h c d e\n\n";
 
   std::cout << "          inorder: "; inorder(tree, print);
   std::cout << "\n";
@@ -91,7 +91,7 @@ int main() {
 
   std::cout << "        postorder: "; postorder(tree, print);
   std::cout << "\n";
-  std::cout << "           expect: f i j g h b c d e a\n\n";
+  std::cout << "           expect: j i h g f e d c b a\n\n";
 
   std::cout << "       levelorder: "; levelorder(tree, print);
   std::cout << "\n";
