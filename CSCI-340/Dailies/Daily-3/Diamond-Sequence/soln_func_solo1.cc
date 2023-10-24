@@ -14,6 +14,7 @@ vector<int> diamondsequence(vector<vector<int>> &m)
     if (n % 2 == 0 || n != m[0].size())
         return diamondsequence;
 
+
     unsigned int i = 0;
     unsigned int j = n / 2;
     while (j < n)
