@@ -20,7 +20,7 @@
 
 /**
  * @brief Each of these functions performs the traversal it is named after on the tree with 
- * root as its root, calling fn as it visits each node. Preorder.
+ * root as its root, calling fn as it visits each node. Preorder. 
  * 
  * @tparam BINTREENODE 
  * @tparam FN 

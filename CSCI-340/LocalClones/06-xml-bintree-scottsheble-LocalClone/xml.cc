@@ -9,7 +9,7 @@
  * Misconduct and will be punished as such.                                                   *
  *                                                                                            *
  **********************************************************************************************/
-// Implement a simple parser for XML that uses a tilted binary tree for storage
+// Implement a simple parser for XML that uses a tilted binary tree for storage 
 #include <iostream>
 #include <string>
 #include <algorithm>
