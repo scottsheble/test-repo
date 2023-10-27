@@ -2,13 +2,26 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
 const double LOWER1 = 0.0;
 const double LOWER2 = -240.99;
 
-double getGreaterValue(string, double);
+double getGreaterValue(const std::string& prompt, double lower_bound) {
+    double value;
+    std::cout << prompt << " (must be greater than " << lower_bound << "): ";
+    
+    while (true) {
+        if (std::cin >> value && value > lower_bound) {
+            return value;
+        } else {
+            std::cin.clear();
+            std::cout << "Error: the value must be greater than " << lower_bound << ". Try again: ";
+        }
+    }
+}
 
 int main()
   {
@@ -74,5 +87,6 @@ int main()
 
   return 0;
   }
+
 
 
