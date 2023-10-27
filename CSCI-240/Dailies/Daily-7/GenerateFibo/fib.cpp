@@ -60,5 +60,19 @@ void printArray(int a[], int numVals)
   cout << endl;
   }
 
+void generateFibo(int fiboArray[], int count) {
+    if (count < 1) {
+        std::cout << "No values to generate." << std::endl;
+        return;
+    }
 
+    fiboArray[0] = 1;
+    if (count > 1) {
+        fiboArray[1] = 1;
+    }
+
+    for (int i = 2; i < count; i++) {
+        fiboArray[i] = fiboArray[i - 1] + fiboArray[i - 2];
+    }
+}
 
