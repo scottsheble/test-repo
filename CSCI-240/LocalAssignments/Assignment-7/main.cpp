@@ -1,11 +1,11 @@
 /********************************************************
-    CSCI 240        Program 3       Fall 2023
+    CSCI 240        Program 7       Fall 2023
 
     Programmer: Scott Sheble
 
     Section: 1
 
-    Date Due: 10/20/23
+    Date Due: 10/27/23
 
     Purpose: For this assignment, the focus will be on 
     writing and calling functions. The functions will be 
@@ -19,7 +19,7 @@
     This process will continue until the user decides 
     to quit.
 
-    Created by scott sheble on 10/01/23.
+    Created by scott sheble on 10/27/23.
 *********************************************************/
 #include <iostream>
 #include <string>
