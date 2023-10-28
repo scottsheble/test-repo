@@ -22,249 +22,232 @@
     Created by scott sheble on 10/27/23.
 *********************************************************/
 #include <iostream>
+#include <fstream>
+#include <cstdlib>
 #include <string>
-
+#include <iomanip> 
 using namespace std;
 
-//prototypes
-int Menu(); 
-int getValue( string prompt, int lowerBound, int upperBound ); 
-int sumOfSquares( int limit ); 
-double averageOfCubes( int limit );
-int sumOfASCII( int limit ); 
-void NIUchant( int iterations );
+const int MAX_CROPS = 30;
+const int COLUMN_WIDTH = 16;
 
+// Function prototypes
+int build(string season[], string name[], int seed_cost[], int sell_value[], int harvest_time[]);
+void print(string season[], string name[], int seed_cost[], int sell_value[], int harvest_time[], int num_of_crops);
+void sort(string season[], string name[], int seed_cost[], int sell_value[], int harvest_time[], int num_of_crops);
+double calculateProfit(int seedCost, int sellValue, int harvestTime); 
 
-int main() 
-{
-    int choice;
-
-    do {
-        choice = Menu(); // Display menu and get user's choice.
-
-        if (choice == 1) {
-            int limit = getValue("How many squares will we summate?", 2, 20);
-            int result = sumOfSquares(limit);
-            cout << "The sum of the first " << limit << " positive numbers squared is " << result << endl;
-        } else if (choice == 2) {
-            int limit = getValue("How many cubes will we average?", 2, 20);
-            double result = averageOfCubes(limit);
-            cout << "The average of the first " << limit << " positive numbers cubed is " << result << endl;
-        } else if (choice == 3) {
-            int limit = getValue("How many ASCII values will we summate?", 1, 26);
-            char charChoice;
-            cout << "Would you like to summate (L)owercase or (U)ppercase characters? ";
-            cin >> charChoice;
-            int result = 0;
-
-            if (charChoice == 'L' || charChoice == 'l') {
-                result = sumOfASCII(limit);
-                cout << "The sum of the first " << limit << " ASCII character values is " << result << endl;
-            } else if (charChoice == 'U' || charChoice == 'u') {
-                result = sumOfASCII(limit);
-                cout << "The sum of the first " << limit << " uppercase ASCII character values is " << result << endl;
-            } else {
-                cout << "Invalid choice. Please enter 'L' for lowercase or 'U' for uppercase characters." << endl;
-            }
-        } else if (choice == 4) {
-            int iterations = getValue("How many words will be iterated from the NIU Chant?", 3, 50);
-            NIUchant(iterations);
-        } else if (choice == 5) {
-            cout << "Ending program..." << endl;
-        } else {
-            cout << "Invalid choice. Please enter a number between 1 and 5." << endl;
+int main() {
+    // Arrays to store crop data
+    string season[MAX_CROPS];
+    string name[MAX_CROPS];
+    int seed_cost[MAX_CROPS];
+    int sell_value[MAX_CROPS];
+    int harvest_time[MAX_CROPS];
+    
+    // Read crop data from a file into arrays
+    int num_of_crops = build(season, name, seed_cost, sell_value, harvest_time);
+    
+    // Display the initial "Gold Profit Per Day Report for All Crops"
+    cout << "Gold Profit Per Day Report for All Crops" << endl;
+    print(season, name, seed_cost, sell_value, harvest_time, num_of_crops);
+    
+    // Sort the crops based on profit per day
+    sort(season, name, seed_cost, sell_value, harvest_time, num_of_crops);
+    
+    // Display the sorted "Gold Profit Per Day Report for All Crops"
+    cout << "Gold Profit Per Day Report for All Crops (sorted)" << endl;
+    print(season, name, seed_cost, sell_value, harvest_time, num_of_crops);
+    
+    // Let the user choose a season and enter investment details
+    int daysLeft, tilledLand;
+    string userSeason;
+    
+    // Display a menu for season selection
+    cout << "\nSeasons\n1) Spring\n2) Summer\n3) Fall\n";
+    cout << "Enter your choice (1 - 3): ";
+    int seasonChoice;
+    cin >> seasonChoice;
+    
+    // Map user's choice to a season
+    switch (seasonChoice) {
+        case 1:
+            userSeason = "Spring";
+            break;
+        case 2:
+            userSeason = "Summer";
+            break;
+        case 3:
+            userSeason = "Fall";
+            break;
+        default:
+            cout << "Invalid season choice." << endl;
+            return 1;
+    }
+    
+    // Get user's investment and other details
+    cout << "How much gold are you investing? (0 - 100000): ";
+    int userInvestment;
+    cin >> userInvestment;
+    
+    cout << "How many days are left in this season for crops to mature? (1 - 27): ";
+    cin >> daysLeft;
+    
+    cout << "How much tilled farmland is available to use? (0 - 128): ";
+    cin >> tilledLand;
+    
+    int totalProfit = 0;
+    int remainingInvestment = userInvestment;
+    
+    // Calculate profit based on user's investment and the chosen season
+    for (int i = 0; i < num_of_crops; i++) {
+        if (season[i] == userSeason && harvest_time[i] <= daysLeft) {
+            int seedsToBuy = min(tilledLand, remainingInvestment / seed_cost[i]);
+            remainingInvestment -= seedsToBuy * seed_cost[i];
+            daysLeft -= harvest_time[i];
+            tilledLand -= seedsToBuy;
+            double cropProfit = calculateProfit(seed_cost[i], sell_value[i], harvest_time[i]);
+            totalProfit += seedsToBuy * cropProfit;
+            
+            // Display purchase details for the user
+            cout << "Purchase " << seedsToBuy << " " << name[i] << " seeds, ";
+            cout << "at the cost of " << seedsToBuy * seed_cost[i] << " gold, ";
+            cout << "which will yield " << fixed << setprecision(2) << cropProfit * seedsToBuy << " gold in profit after ";
+            cout << harvest_time[i] << " days." << endl;
         }
-    } while (choice != 5);
-
+    }
+    
+    // Display the total profit
+    cout << "Total profit: " << fixed << totalProfit << " gold." << endl;
+    
     return 0;
 }
 
 /**
- * @brief This function displays a menu and gets a choice from 
- * the user.
+ * @brief This function will fill the five arrays with the values predefined within the 
+ * crops.txt input file described above. It returns an integer that is the number of crops 
+ * read from the input file. Note about the return value: this value is important because 
+ * it will be smaller than the maximum capacity of the arrays passed. The function should 
+ * start by declaring any variables that are needed. At a minimum, there should be a string 
+ * variable to capture incoming string values, an integer to hold the incoming integer 
+ * values, a second integer variable used to index each of the five arrays, and an input 
+ * file stream.
  * 
+ * @param season 
+ * @param name 
+ * @param seed_cost 
+ * @param sell_value 
+ * @param harvest_time 
  * @return int 
  */
-int Menu()
-{
-    int choice;
-    bool viableChoice = false; //boolean for determining if user choice is viable.
-
-    do {
-
-        std::cout << "Objectives" << "\n\n";
-        std::cout << "1) Calculate the sum of the first N squared numbers" << std::endl;
-        std::cout << "2) Calculate the average of the first N cubed numbers" << std::endl;
-        std::cout << "3) Calculate the sum of the ASCII value of the first N characters" << std::endl;
-        std::cout << "4) Word iterations from the NIU school chant." << std::endl << std::endl;
-        std::cout << "5) Quit" << "\n\n";
-        std::cout << "Enter your choice: "; 
-        std::cin >> choice; //user choice for menu option.
-        std::cout << "\n\n";
-
-        if (choice < 1 || choice > 5) 
-        {
-            std::cin.clear();
-            std::cout << "Invalid choice. Please enter a number between 1 and 5." << std::endl;
-        } else {
-            viableChoice = true;
-        }
-    } while (!viableChoice);
-        
-    return choice; //returns user's choice.
-}
+int build(string season[], string name[], int seed_cost[], int sell_value[], int harvest_time[]) {
+    // Function to read crop data from a file
+    ifstream infile;
+    infile.open("crops.txt");
     
-/**
- * @brief Get the Value object. This function will get an 
- * integer value from the user that is within a specified 
- * range.
- * 
- * @param prompt 
- * @param lowerBound 
- * @param upperBound 
- * @return int 
- */
-int getValue(string prompt, int lowerBound, int upperBound)
-{
-    int value;
-    bool validValue = false; //check if value is valid.
-
-    do {
-        // displays prompt and range.
-        std::cout << prompt << " (" << lowerBound << " - " << upperBound << "): ";
-        std::cin >> value;
-
-        // check for valid input.
-        if (value < lowerBound || value > upperBound) 
-        {
-            std::cin.clear();
-            std::cout << "Invalid value. Please enter a number within the specified range." << std::endl;
-        } else {
-            validValue = true;
-        }
-    } while (!validValue);
-
-    return value;
-}
-
-/**
- * @brief This function will summate all the squares of 
- * positive integers between 1 and limit (inclusive), and 
- * return that sum.
- * 
- * @param limit 
- * @return int 
- */
-int sumOfSquares(int limit)
-{
-    int sum = 0;
-
-    for (int i = 1; i <= limit; i++) 
-    {
-        sum += i * i;
+    if (infile.fail()) {
+        cout << "crops.txt input file did not open" << endl;
+        exit(-1);
     }
-
-    return sum;
+    
+    int index = 0;
+    
+    while (infile) {
+        infile >> season[index];
+        infile >> name[index];
+        infile >> seed_cost[index];
+        infile >> sell_value[index];
+        infile >> harvest_time[index];
+        index++;
+    }
+    
+    infile.close();
+    
+    return index - 1;
 }
 
+/**
+ * @brief This function will display the information for all of the crops. It takes as its 
+ * arguments the array of strings that holds the seasons, the array of strings that holds 
+ * the crop names, the array of integers that holds the cost of this crop's seed, the array 
+ * of integers that holds the resale value of the matured crop, the array of integers that 
+ * holds the number of days required for the crop to mature, and an integer that holds the 
+ * number of crops that were defined from the input file.
+ * 
+ * @param season 
+ * @param name 
+ * @param seed_cost 
+ * @param sell_value 
+ * @param harvest_time 
+ * @param num_of_crops 
+ */
+void print(string season[], string name[], int seed_cost[], int sell_value[], int harvest_time[], int num_of_crops) {
+    // Function to print the crop data
+    cout << setw(90) << "Gold Profit Per Day Report for All Crops" << endl;
+    cout << setw(COLUMN_WIDTH) << "Season";
+    cout << setw(COLUMN_WIDTH) << "Crop Name";
+    cout << setw(COLUMN_WIDTH) << "Seed Cost";
+    cout << setw(COLUMN_WIDTH) << "Sell Value";
+    cout << setw(COLUMN_WIDTH) << "Harvest Time";
+    cout << setw(COLUMN_WIDTH) << "Gold Profit/Day" << endl;
+    cout << string(COLUMN_WIDTH * 6, '-') << endl;
+
+    for (int i = 0; i < num_of_crops; i++) {
+        double profitPerDay = calculateProfit(seed_cost[i], sell_value[i], harvest_time[i]);
+        cout << setw(COLUMN_WIDTH) << season[i];
+        cout << setw(COLUMN_WIDTH) << name[i];
+        cout << setw(COLUMN_WIDTH) << seed_cost[i];
+        cout << setw(COLUMN_WIDTH) << sell_value[i];
+        cout << setw(COLUMN_WIDTH) << harvest_time[i];
+        cout << fixed << setprecision(2) << setw(COLUMN_WIDTH) << profitPerDay << endl;
+    }
+    cout << string(COLUMN_WIDTH * 6, '-') << endl;
+}
 
 /**
- * @brief This function will calculate the average of all the 
- * cubes of 'limit' number of integers, starting with 0, and 
- * return that value.
+ * @brief This function will sort the arrays in DESCENDING order based on the gold profit 
+ * per day of each crop. Use the selection sort algorithm presented in lecture. The 
+ * arguments list here is exactly the same as with void print described above.
  * 
- * @param limit 
+ * @param season 
+ * @param name 
+ * @param seed_cost 
+ * @param sell_value 
+ * @param harvest_time 
+ * @param num_of_crops 
+ */
+void sort(string season[], string name[], int seed_cost[], int sell_value[], int harvest_time[], int num_of_crops) {
+    // Function to sort crops based on profit per day
+    for (int i = 0; i < num_of_crops - 1; i++) {
+        int maxIndex = i;
+        for (int j = i + 1; j < num_of_crops; j++) {
+            if (calculateProfit(seed_cost[j], sell_value[j], harvest_time[j]) >
+                calculateProfit(seed_cost[maxIndex], sell_value[maxIndex], harvest_time[maxIndex])) {
+                maxIndex = j;
+            }
+        }
+        
+        if (maxIndex != i) {
+            // Swap the elements to sort the array
+            swap(season[i], season[maxIndex]);
+            swap(name[i], name[maxIndex]);
+            swap(seed_cost[i], seed_cost[maxIndex]);
+            swap(sell_value[i], sell_value[maxIndex]);
+            swap(harvest_time[i], harvest_time[maxIndex]);
+        }
+    }
+}
+
+/**
+ * @brief Function to calculate profit per day.
+ * 
+ * @param seedCost 
+ * @param sellValue 
+ * @param harvestTime 
  * @return double 
  */
-double averageOfCubes(int limit)
-{
-    double sum = 0.0;
-
-    for (int i = 0; i < limit; i++) 
-    {
-        sum += (i * i * i);
-    }
-
-    return (sum / (limit)); //returns average of cubes. 
+double calculateProfit(int seedCost, int sellValue, int harvestTime) {
+    // Calculate profit as (sellValue - seedCost) / harvestTime
+    double profit = static_cast<double>(sellValue - seedCost) / harvestTime;
+    return profit;
 }
-
-/**
- * @brief This function will calculate the sum of the ASCII 
- * values of the first N characters starting with 'a' or 'A', 
- * and return that sum.
- * 
- * @param limit 
- * @return int 
- */
-int sumOfASCII(int limit)
-{
-    char startingChar; //starting character for static_cast loop.
-    int sum = 0;
-
-    // calculate sum of ASCII values by static_cast.
-    for (char i = startingChar; i < startingChar + limit; i++) 
-    {
-        sum += static_cast<int>(i); //type conversion to int.
-    }
-
-    return sum;
-}
-
-/**
- * @brief This function will display an iterations number of 
- * words from the NIU school chant: Forward! Together, 
- * Forward! Make sure to include spaces after each word or 
- * token, as well as two (2) newline characters once the list 
- * of words has finished printing.
- * 
- * @param iterations 
- */
-void NIUchant(int iterations)
-{
-    std::string chant = "Forward! Together, Forward!";
-    int chantLength = chant.length();
-
-    // display number of iterations specified.
-    for (int i = 0; i < iterations; i++) 
-    {
-        int startIndex = i * chantLength;
-        int endIndex = startIndex + chantLength;
-
-        if (endIndex > chantLength) 
-        {
-            // wrap back to startIndex if end of chant.
-            startIndex = startIndex % chantLength;
-            endIndex = chantLength;
-        }
-
-        std::string word = chant.substr(startIndex, endIndex - startIndex);
-
-        std::cout << word;
-
-        // adding space after each word/token.
-        if (i < iterations - 1) 
-        {
-            std::cout << " ";
-        }
-    }
-
-    std::cout << std::endl << std::endl; // adding 2 newlines at end of chant.
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
