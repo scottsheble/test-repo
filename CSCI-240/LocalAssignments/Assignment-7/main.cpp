@@ -31,6 +31,7 @@ using namespace std;
 const int MAX_CROPS = 30;
 const int COLUMN_WIDTH = 16;
 
+
 // Function prototypes
 int build(string season[], string name[], int seed_cost[], int sell_value[], int harvest_time[]);
 void print(string season[], string name[], int seed_cost[], int sell_value[], int harvest_time[], int num_of_crops);
