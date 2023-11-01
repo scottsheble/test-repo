@@ -31,6 +31,7 @@ Some of these were in a previous assignment. If you got them working, feel free 
 
 ### Binary Search Trees
 
+
 You should have already covered binary search trees in your course's lecture, but I'm including a brief summary.
 
 A binary search tree is a binary tree where nodes are organized based on a comparison in a specific way. The comparison function we will use for this assignment is `<` (less than), although it's possible to implement binary search trees in other ways.
