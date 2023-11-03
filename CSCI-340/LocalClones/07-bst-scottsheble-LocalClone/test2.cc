@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
     }
   }
   typedef NodeLRP<int> NODE;
-  NODE * root; 
+  NODE * root = nullptr; 
   cout << "********************************************************************************\n";
   cout << "* Building binary search tree by inserting the sequence:\n";
   cout << "*   ";

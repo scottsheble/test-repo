@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
   typedef NodeLRP<int> NODE;
 
   string line;
-  NODE *root;
+  NODE *root = nullptr;
   bool dontstop = true;
   bool silent = false;
 
