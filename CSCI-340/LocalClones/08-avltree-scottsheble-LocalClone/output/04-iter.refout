@@ -1,0 +1,92 @@
+////////////////////////////////////////////////////////////////////////////////
+// test-iter - Test your avl_set's iterators, avl_iterator  
+//
+//  This program allows you to test the iterators provided by your container to 
+// make sure they behave the same way as other bidirectional iterators. First,  
+// it runs the tests on std::list and std::set so you can see what is expected. 
+// Then it runs the same tests on your avl_set.  
+//   
+//   I tried to make smaller tests so you can identify problems in isolation, 
+// but I needed to be able to construct the container, so you'll need to  
+// make sure to implement your iterator-range-based constructor first.  
+////////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Testing iterators for std::set bidi iterator
+  //////////////////////////////////////////////////////////////////////////////
+  Constructing your container with the input data.
+  Calling begin().
+    test dereference, *begin(); expect: 1, got: 1
+  Calling end().
+  Check if the bidi iterator can come back from off the end; i.e. *(--end)
+    Prefix --x  expect 10 got 10
+    Postfix x-- expect 10 got 10
+  Check if the bidi iterator can come back from before beginning, i.e. *(++(--begin))
+  | this is technically undefined behavior, so std::set is allowed to be 
+  | wrong, but your iterator must support it. )
+    --x then ++x expect 1 got 10
+    --x then x++ expect 1 got 10
+    x-- then ++x expect 1 got 10
+    x-- then x++ expect 1 got 10
+  Print out first 5 values from begin(), prefix increment (not using end)
+    [ 1 2 3 4 5 ]
+  Print out first 5 values from begin(), postfix increment (not using end)
+    [ 1 2 3 4 5 ]
+  Print out whole contents from begin to end, prefix
+    [ 1 2 3 4 5 6 7 8 9 10 ]
+  Print out whole contents from begin to end, postfix
+    [ 1 2 3 4 5 6 7 8 9 10 ]
+  Calling rbegin()
+    test dereference, *rbegin(); expect: 10, got: 10
+  Calling rend()
+  Testing iteration from rbegin to rend, prefix ++x on adapter (your --x)
+    [ 10 9 8 7 6 5 4 3 2 1 ]
+  Testing iteration from rbegin to rend, postfix x++ on adapter (your x--)
+    [ 10 9 8 7 6 5 4 3 2 1 ]
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Testing iterators for avl_set bidi iterator
+  //////////////////////////////////////////////////////////////////////////////
+  Constructing your container with the input data.
+  Dumping contents of tree after construction to help you debug issues.
+  These addresses will obviously be different so don't expect them to
+  match the reference output.
+    node (0x55b350a90410) has data 4, left=(0x55b350a903b0), right=(0x55b350a902f0), parent=(0)
+    node (0x55b350a903b0) has data 2, left=(0x55b350a90380), right=(0x55b350a903e0), parent=(0x55b350a90410)
+    node (0x55b350a90380) has data 1, left=(0), right=(0), parent=(0x55b350a903b0)
+    node (0x55b350a903e0) has data 3, left=(0), right=(0), parent=(0x55b350a903b0)
+    node (0x55b350a902f0) has data 8, left=(0x55b350a90470), right=(0x55b350a90350), parent=(0x55b350a90410)
+    node (0x55b350a90470) has data 6, left=(0x55b350a90440), right=(0x55b350a904a0), parent=(0x55b350a902f0)
+    node (0x55b350a90440) has data 5, left=(0), right=(0), parent=(0x55b350a90470)
+    node (0x55b350a904a0) has data 7, left=(0), right=(0), parent=(0x55b350a90470)
+    node (0x55b350a90350) has data 9, left=(0), right=(0x55b350a90320), parent=(0x55b350a902f0)
+    node (0x55b350a90320) has data 10, left=(0), right=(0), parent=(0x55b350a90350)
+  Calling begin().
+    test dereference, *begin(); expect: 1, got: 1
+  Calling end().
+  Check if the bidi iterator can come back from off the end; i.e. *(--end)
+    Prefix --x  expect 10 got 10
+    Postfix x-- expect 10 got 10
+  Check if the bidi iterator can come back from before beginning, i.e. *(++(--begin))
+  | this is technically undefined behavior, so std::set is allowed to be 
+  | wrong, but your iterator must support it. )
+    --x then ++x expect 1 got 1
+    --x then x++ expect 1 got 1
+    x-- then ++x expect 1 got 1
+    x-- then x++ expect 1 got 1
+  Print out first 5 values from begin(), prefix increment (not using end)
+    [ 1 2 3 4 5 ]
+  Print out first 5 values from begin(), postfix increment (not using end)
+    [ 1 2 3 4 5 ]
+  Print out whole contents from begin to end, prefix
+    [ 1 2 3 4 5 6 7 8 9 10 ]
+  Print out whole contents from begin to end, postfix
+    [ 1 2 3 4 5 6 7 8 9 10 ]
+  Calling rbegin()
+    test dereference, *rbegin(); expect: 10, got: 10
+  Calling rend()
+  Testing iteration from rbegin to rend, prefix ++x on adapter (your --x)
+    [ 10 9 8 7 6 5 4 3 2 1 ]
+  Testing iteration from rbegin to rend, postfix x++ on adapter (your x--)
+    [ 10 9 8 7 6 5 4 3 2 1 ]
+
