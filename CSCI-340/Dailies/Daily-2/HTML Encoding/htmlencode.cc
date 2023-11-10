@@ -26,7 +26,7 @@ int main() {
                 input += c;
         }
     }
-
+ 
     std::cout << input;
 
     return 0;
