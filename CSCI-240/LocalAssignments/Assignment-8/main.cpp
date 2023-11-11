@@ -29,53 +29,27 @@
 using namespace std;
 
 class Date {
-private:
-    int day;
-    string month;
-    int year;
 
 public:
-    // Default constructor
     Date();
-
-    // Alternate constructor
     Date(int newDay, string newMonth, int newYear);
-
-    // Method to set the date
+    
     void set_date(int newDay, string newMonth, int newYear);
-
-    // Accessor method to get the name of the day
     string get_day_name();
-
-    // Accessor method to get the formatted day
     string get_day();
-
-    // Accessor method to get the month
     string get_month();
-
-    // Accessor method to get the year
     int get_year();
-
-    // Accessor method to get the complete and formatted representation of the date
     string get_date();
 
 private:
-    // Helper method to get the maximum days for the current month and year
+    int day, year;
+    string month;
+
     int getMaxDays();
-
-    // Helper method to get the day index
     int getDayIndex();
-
-    // Helper method to get the suffix for the day (e.g., st, nd, rd, th)
     string getSuffix();
-
-    // Helper method to check if the year is a leap year
     bool isLeapYear();
-
-    // Helper method to get the index of the month
     int getMonthIndex(string monthName);
-
-    // Function to get the name of the day for a given day index
     string getDayName(int dayIndex);
 };
 
@@ -84,8 +58,6 @@ const string validMonths[] = {"January", "February", "March", "April", "May", "J
 
 // Array of maximum days for each month
 const int maxDaysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-
 
 int main() {
     // Set the seed value for the random number generator
@@ -173,9 +145,8 @@ Date::Date(int newDay, string newMonth, int newYear) {
  * @param newYear 
  */
 void Date::set_date(int newDay, string newMonth, int newYear) {
-    // Validate and set the month
-    bool validMonth = false;
-    for (const string &validMonthName : validMonths) {
+    bool validMonth = false; // Validate and Loop through each valid month name
+    for (const string &validMonthName : validMonths) { 
         if (newMonth == validMonthName) {
             validMonth = true;
             break;
