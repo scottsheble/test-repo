@@ -58,7 +58,7 @@ PiggyBank bank2;
 
 //Display the two objects
 cout << "bank1" << endl;
-
+ 
 bank1.printBank();
 bank1.printBankValue();
 

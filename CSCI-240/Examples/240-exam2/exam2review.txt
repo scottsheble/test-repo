@@ -1,0 +1,133 @@
+Exam 2 Format
+Part 1:	Multiple Choice
+        20 points -- 20 questions
+        Must be completed by 11:59 PM on Friday, November 17
+
+Part 2:	Short Answer and Coding
+	80 points -- 19 questions (currently)
+        Must be completed on Wednesday, November 15 (in Montgomery Auditorium)
+
+Sample problems are available on Blackboard under Content/Exams/Review Material
+
+--------------------------------------
+
+Exam 2 Topics
+
+switch statement
+characters and character functions
+Functions
+Arrays
+Arrays and Functions
+
+--------------------------------------
+
+Functions
+
+- Function Prototypes
+
+
+ 
+- Function Headers
+
+
+
+- exam2review1.cpp
+
+
+
+
+--------------------------------------
+ 
+Arrays
+
+
+
+//Create an array to hold 75 strings
+
+
+
+
+
+
+
+//Put your first name in the first spot of the array
+
+
+
+//Put your last name in the last spot of the array
+
+
+
+
+
+
+//Display all the strings in nameArray
+
+
+
+
+//Ask the user how names to display and then display
+//that many names
+
+
+
+
+
+
+
+- exam2review2.cpp and exam2review3.cpp
+
+
+
+--------------------------------------
+
+Arrays and Functions
+
+
+- Prototype
+
+
+
+- Function Header
+
+
+
+- Calling Statement
+
+
+
+- exam2review4.cpp
+
+
+
+-------------------------------------- 
+
+switch statement
+
+
+
+- Compound conditions and switch statements
+
+
+
+
+
+
+
+--------------------------------------
+
+characters and character functions
+
+
+
+- common ascii values
+
+
+
+Character Functions (is functions)     #include<cctype>
+
+
+Character Functions (to functions)     #include<cctype>
+
+
+

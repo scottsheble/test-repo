@@ -1,0 +1,311 @@
+Exam 2 Format
+Part 1:	Multiple Choice
+        20 points -- 20 questions
+        Must be completed by 11:59 PM on Friday, November 17
+
+Part 2:	Short Answer and Coding
+	80 points -- 19 questions (currently)
+        Must be completed on Wednesday, November 15 (in Montgomery Auditorium)
+
+Sample problems and this text file are available on Blackboard under 
+Content/Exams/Review Material
+
+--------------------------------------
+
+Exam 2 Topics
+
+switch statement
+characters and character functions
+Functions
+Arrays
+Arrays and Functions
+
+--------------------------------------
+
+Functions
+- allow a programmer to put code outside of main, which
+  can be used by main() and other functions
+
+- selfish
+
+
+- Function Prototypes
+  - goal is to supply info about the function to the compiler
+    - return type of what is being returned
+    - the function name
+    - the data type of any arguments that are needed by the function
+
+  - placed above int main() but after any using statement
+
+  - MUST end with a semi-colon
+
+  - generic format:  return_type function_name();
+
+        return_type function_name( arg1_data_type, arg2_data_type,...);
+
+
+
+- Function Headers
+  - first line of the function
+
+  - must include:
+    - return data type
+    - function name
+    - data_type and name for EACH argument 
+
+  - format:  return_type function_name()  //no arguments
+
+ return_type func_name( arg1_type arg1_name, arg2_type arg2_name, ...)
+
+
+- Calling Statement
+  - this is how the function code gets executed
+
+  - this is how the argument values are supplied
+
+  - format:   ___ function_name();
+
+      ___ is dependent on return type for the function
+        -- if return type is void, then nothing fills the blanks
+
+        -- if return type is something other than void, the blanks can
+           be replaced by an assignment statement, cout, or anything
+           that handles the return value
+
+
+      ____ function_name( value1, value2, ... );
+
+       ___ is treate the same as above
+
+       value1, value2, etc... - they can be variable names or literal
+                                values or expressions
+
+- exam2review1.cpp
+
+
+
+
+--------------------------------------
+ 
+Arrays
+- compound data type (means it can hold multiple values - all the same
+                      data type)
+
+- to declare/create an array
+  - data type of what the array will hold
+  - the name of the array
+  - how many values (maximum)
+
+- format: data_type name[ how many values ];
+
+  data_type name[how many values] = {value1, value2, value3,...};
+
+- format 2 only works when declaring and initializing in one step
+
+- format 2 - if at least one spot is initialized, C++ will initialize
+             the remaining spots
+
+           - 0 for numeric data types, empty string for string data type
+
+
+//Create an array to hold 75 strings
+
+string nameArray[75];
+
+
+//Put your first name in the first spot of the array
+
+nameArray[0] = "Amy";
+
+//Put your last name in the last spot of the array
+
+nameArray[74] = "Byrnes";
+
+
+//Display all the strings in nameArray
+
+int sub;
+for( sub = 0; sub < 75; sub += 1 )
+  {
+  cout << nameArray[sub] << endl;
+  }
+
+
+//Ask the user how names to display and then display
+//that many names
+
+int howMany;
+
+cout << "How many names? ";
+cin >> howMany;
+
+for( int sub = 0; sub < howMany; sub += 1 )
+  {
+  cout << nameArray[sub] << endl;
+  }
+
+
+
+
+
+- exam2review2.cpp and exam2review3.cpp
+
+
+
+--------------------------------------
+
+Arrays and Functions
+- when an array is passed to a function, the function CAN make
+  direct changes to the array
+
+- an array is passed to a function by address, which means that the
+  function know where in memory to access the array
+
+- to specify an array as an argument
+  - prototype: array_data_type []
+
+  - header: array_data_type arg_name[]
+
+- to pass an array to a function, pass ONLY the name of the array
+
+
+- Prototype
+  
+  return_type function_name( arg_type [], .... );
+
+
+- Function Header
+
+  retur_type function_name( arg_type arg_name[], .... )
+
+  - the arg_name DOES NOT have to be the same as the array declaration
+    in int main()
+
+
+- Calling Statement
+
+  ___ function_name( array_name, .... );
+
+
+  ___ same as from function section of this document
+
+- exam2review4.cpp
+
+
+
+-------------------------------------- 
+
+switch statement
+- alternative to cascading if statement
+- ONLY works with data types that behave like ints (int, char, bool)
+
+switch( variable )
+  {
+  case value1:  executes if variable == value1
+                ...
+                break;   //to bypass the remaining cases
+
+  case value2:  executes if variable == value2
+                ...
+                break;
+
+  default:      executes if variable does not match any value
+  }
+
+
+- Compound conditions and switch statements
+  - only OR compound conditions
+  - stack case statements
+
+switch(variable)
+  {
+  case value1:
+  case value2:   executes if variable == value1 or variable == value2
+                 ...
+                 break;
+
+  default:
+  }
+
+
+
+
+
+
+--------------------------------------
+
+characters and character functions
+- 256 possible values
+- each character has a unique numeric value associated with it
+  -- this is the value that is saved in memory
+
+- if a variable is declared as type char, a cout statement is
+  "smart enough" to convert to the character representation
+
+- common ascii values
+  32  space
+  65  start of uppercase letters
+  97  start of lowercase letters
+
+  48  start of digits (starts with '0')
+
+
+
+Character Functions (is functions)     #include<cctype>
+
+- all of the 'is' functions take a single character as the argument
+- all of the 'is' functions return true or false
+
+
+isalpha, islower, isupper
+- tests for alphabetic, lowercase alphabetic, and uppercase alphabetic, respectively
+
+isdigit
+- tests for a digit character (i.e. something between '0' and '9')
+
+isalnum
+- tests for alphanumeric
+
+isspace
+- tests for whitespace character (space, tab, newline, etc...)
+
+ispunct
+- tests for punctuation character (anything that is not alphanumeric 
+                                   and not whitespace)
+
+
+//condition that tests if the character variable c contains an alphanumeric
+//character
+
+( isalnum(c) )
+
+
+
+
+Character Functions (to functions)     #include<cctype>
+
+- both take a single character as an argument
+- both return a single character
+
+tolower
+toupper
+  - if the passed in character is alphabetic, it is changed to lowercase/uppercase and
+    the updated value is returned
+
+  - if the passed in character is not alphabetic, it is returned unchanged
+
+  - if the passed in character is already the correct case, it is returned unchanged
+
+//change a character in the variable c to its lowercase representation and save it
+//in the variable lower_result
+
+lower_result = tolower( c );
+
+
+//change the following compound condition to a simple condition
+
+compound condition:  ch == 'T' or ch == 't'
+
+version 1: toupper(ch) == 'T'
+
+version 2: tolower(ch) == 't'
