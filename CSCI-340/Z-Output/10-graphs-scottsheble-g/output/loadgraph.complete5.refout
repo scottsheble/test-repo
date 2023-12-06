@@ -1,0 +1,110 @@
+Loading graph from file "complete5.graph"
+Found 5 vertices:
+  vertex index=0, label=v
+  vertex index=1, label=w
+  vertex index=2, label=x
+  vertex index=3, label=y
+  vertex index=4, label=z
+
+Found 20 edges:
+  edge origin=v(0), dest=w(1), weight=11
+  edge origin=v(0), dest=x(2), weight=12
+  edge origin=v(0), dest=y(3), weight=13
+  edge origin=v(0), dest=z(4), weight=14
+  edge origin=w(1), dest=v(0), weight=15
+  edge origin=w(1), dest=x(2), weight=16
+  edge origin=w(1), dest=y(3), weight=17
+  edge origin=w(1), dest=z(4), weight=18
+  edge origin=x(2), dest=v(0), weight=19
+  edge origin=x(2), dest=w(1), weight=20
+  edge origin=x(2), dest=y(3), weight=21
+  edge origin=x(2), dest=z(4), weight=22
+  edge origin=y(3), dest=v(0), weight=23
+  edge origin=y(3), dest=w(1), weight=24
+  edge origin=y(3), dest=x(2), weight=25
+  edge origin=y(3), dest=z(4), weight=26
+  edge origin=z(4), dest=v(0), weight=27
+  edge origin=z(4), dest=w(1), weight=28
+  edge origin=z(4), dest=x(2), weight=29
+  edge origin=z(4), dest=y(3), weight=30
+
+  g.nvertices() = 5
+  g.nedges() = 20
+  Printing undirected adjacency list:
+    0, label=v, index=0: [w(1):11] [x(2):12] [y(3):13] [z(4):14] [w(1):15] [x(2):19] [y(3):23] [z(4):27] 
+    1, label=w, index=1: [v(0):11] [v(0):15] [x(2):16] [y(3):17] [z(4):18] [x(2):20] [y(3):24] [z(4):28] 
+    2, label=x, index=2: [v(0):12] [w(1):16] [v(0):19] [w(1):20] [y(3):21] [z(4):22] [y(3):25] [z(4):29] 
+    3, label=y, index=3: [v(0):13] [w(1):17] [x(2):21] [v(0):23] [w(1):24] [x(2):25] [z(4):26] [z(4):30] 
+    4, label=z, index=4: [v(0):14] [w(1):18] [x(2):22] [y(3):26] [v(0):27] [w(1):28] [x(2):29] [y(3):30] 
+
+  Printing out-adjacency list:
+    0, label=v, index=0: [w(1):11] [x(2):12] [y(3):13] [z(4):14] 
+    1, label=w, index=1: [v(0):15] [x(2):16] [y(3):17] [z(4):18] 
+    2, label=x, index=2: [v(0):19] [w(1):20] [y(3):21] [z(4):22] 
+    3, label=y, index=3: [v(0):23] [w(1):24] [x(2):25] [z(4):26] 
+    4, label=z, index=4: [v(0):27] [w(1):28] [x(2):29] [y(3):30] 
+
+  Printing in-adjacency list:
+    0, label=v, index=0: [w(1):15] [x(2):19] [y(3):23] [z(4):27] 
+    1, label=w, index=1: [v(0):11] [x(2):20] [y(3):24] [z(4):28] 
+    2, label=x, index=2: [v(0):12] [w(1):16] [y(3):25] [z(4):29] 
+    3, label=y, index=3: [v(0):13] [w(1):17] [x(2):21] [z(4):30] 
+    4, label=z, index=4: [v(0):14] [w(1):18] [x(2):22] [y(3):26] 
+
+  Unweighted Adjacency Matrix
+  0 1 1 1 1 
+  1 0 1 1 1 
+  1 1 0 1 1 
+  1 1 1 0 1 
+  1 1 1 1 0 
+
+  Weighted Adjacency Matrix
+    inf    11    12    13    14 
+     15   inf    16    17    18 
+     19    20   inf    21    22 
+     23    24    25   inf    26 
+     27    28    29    30   inf 
+
+  Depth first (connected only): [v(0)] [z(4)] [y(3)] [x(2)] [w(1)] 
+  Depth first traversal (all):  [v(0)] [z(4)] [y(3)] [x(2)] [w(1)] 
+
+  Breadth first (connected only): [v(0)] [w(1)] [x(2)] [y(3)] [z(4)] 
+  Breadth first traversal (all):  [v(0)] [w(1)] [x(2)] [y(3)] [z(4)] 
+
+  Topological sort: (ends early b/c of cycle) 
+
+Dijkstra's Shortest Path from source v(0)
+  node=v(0), distance = 0
+  node=w(1), distance =11, from vertex v(0)
+  node=x(2), distance =12, from vertex v(0)
+  node=y(3), distance =13, from vertex v(0)
+  node=z(4), distance =14, from vertex v(0)
+
+Dijkstra's Shortest Path from source w(1)
+  node=v(0), distance =15, from vertex w(1)
+  node=w(1), distance = 0
+  node=x(2), distance =16, from vertex w(1)
+  node=y(3), distance =17, from vertex w(1)
+  node=z(4), distance =18, from vertex w(1)
+
+Dijkstra's Shortest Path from source x(2)
+  node=v(0), distance =19, from vertex x(2)
+  node=w(1), distance =20, from vertex x(2)
+  node=x(2), distance = 0
+  node=y(3), distance =21, from vertex x(2)
+  node=z(4), distance =22, from vertex x(2)
+
+Dijkstra's Shortest Path from source y(3)
+  node=v(0), distance =23, from vertex y(3)
+  node=w(1), distance =24, from vertex y(3)
+  node=x(2), distance =25, from vertex y(3)
+  node=y(3), distance = 0
+  node=z(4), distance =26, from vertex y(3)
+
+Dijkstra's Shortest Path from source z(4)
+  node=v(0), distance =27, from vertex z(4)
+  node=w(1), distance =28, from vertex z(4)
+  node=x(2), distance =29, from vertex z(4)
+  node=y(3), distance =30, from vertex z(4)
+  node=z(4), distance = 0
+
